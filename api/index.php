@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="api/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -331,6 +331,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="*api/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
