@@ -370,6 +370,7 @@ function initHeroCounters() {
   counters.forEach((el) => observer.observe(el));
 }
 
+
 /* ---------------------------------------------------------
    11. CONTACT FORM (front-end only — no backend)
    --------------------------------------------------------- */
@@ -470,4 +471,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroCounters();
   initContactForm();
   setFooterYear();
-});
+}
+);
+
+// for icons...
+lucide.createIcons();

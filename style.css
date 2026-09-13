@@ -155,7 +155,7 @@ h1, h2, h3, h4 {
 
 .nav-logo {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: 2rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -171,7 +171,7 @@ h1, h2, h3, h4 {
 .nav-link {
   position: relative;
   padding: 8px 14px;
-  font-size: 0.92rem;
+  font-size: 1.25rem;
   color: var(--text-muted);
   border-radius: var(--radius-sm);
   transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
@@ -236,6 +236,10 @@ h1, h2, h3, h4 {
   margin-bottom: 10px;
 }
 
+.family_name {
+  color: var(--cyan);
+}
+
 .section-sub {
   color: var(--text-muted);
   font-size: 1.02rem;
@@ -249,8 +253,8 @@ h1, h2, h3, h4 {
   gap: 8px;
   padding: 13px 26px;
   border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 700;
   transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   white-space: nowrap;
 }
@@ -258,7 +262,7 @@ h1, h2, h3, h4 {
 .btn-primary {
   background: var(--gradient-brand);
   color: #06131a;
-  font-weight: 600;
+  font-weight: 1000;
   box-shadow: 0 8px 24px -8px rgba(53, 226, 224, 0.4);
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -8px rgba(53, 226, 224, 0.55); }
@@ -267,6 +271,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border-strong);
   color: var(--text);
   background: rgba(255,255,255,0.02);
+  padding:15px;
 }
 .btn-ghost:hover { border-color: var(--cyan); background: var(--cyan-soft); transform: translateY(-2px); }
 
@@ -333,7 +338,7 @@ h1, h2, h3, h4 {
 
 .hero-role {
   font-size: clamp(1.05rem, 2vw, 1.3rem);
-  color: var(--text-muted);
+  color: var(--amber);
   font-family: var(--font-display);
   font-weight: 500;
   margin-bottom: 22px;
@@ -509,9 +514,25 @@ h1, h2, h3, h4 {
 }
 .info-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
 
-.info-card-icon { font-size: 1.4rem; margin-bottom: 10px; }
-.info-card h3 { font-size: 0.95rem; margin-bottom: 4px; color: var(--cyan); }
-.info-card p { color: var(--text-muted); font-size: 0.92rem; }
+.info-card-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.info-card-icon svg {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  stroke-width: 2.2;
+}
+.info-card h3 { font-size: 1.2rem; margin-bottom: 4px; color: var(--cyan);text-transform: uppercase; letter-spacing: 0.02em;text-shadow: 0 0 2px rgba(53,226,224,0.3);text-align: center; }
+.info-card p { color: var(--text-muted); font-size: 0.92rem;text-align: center; }
 
 /* =========================================================
    CARD GRIDS (Projects / Exercises / Presentations)
@@ -767,7 +788,7 @@ h1, h2, h3, h4 {
 }
 .form-row.has-error .form-error { display: block; }
 
-.form-submit { align-self: flex-start; margin-top: 4px; }
+.form-submit { align-self: flex-end; margin-top: 4px; }
 .form-note { font-size: 0.78rem; color: var(--text-dim); }
 
 .form-submit.is-success { background: linear-gradient(135deg, #5fd97a, var(--cyan)); }

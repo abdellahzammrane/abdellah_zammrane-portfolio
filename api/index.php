@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="public/images/Favicon.png">
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 <!-- ============ NAVBAR ============ -->
 <header class="navbar" id="navbar">
   <nav class="nav-container">
-    <a href="#home" class="nav-logo">
+    <a href="#" class="nav-logo">
       <span class="nav-logo-bracket">&lt;</span>AZ<span class="nav-logo-bracket">/&gt;</span>
     </a>
 
@@ -44,13 +45,16 @@
     <div class="hero-container">
       <div class="hero-text" data-reveal>
         <p class="hero-kicker">Digital Development — ISTA NTIC Tanger</p>
-        <h1 class="hero-title">AbdellaH ZammRane</h1>
+        <h1 class="hero-title">AbdellaH <span class="family_name">ZammRane</span></h1>
         <p class="hero-role">Digital Development Student &amp; Future Web Developer</p>
         <p class="hero-desc">
-          I'm building my skills in web development one module at a time — turning classroom
-          exercises, lab work and personal projects into a growing body of practical, working code.
-          This portfolio brings that work together in one place, for my instructors and for anyone
-          curious about what I'm building.
+          Where I spend 20% of my time writing code and 80% wondering why the code doesn't work.
+          I tell computers what to do for a living.
+          They don't always listen.
+          So I debug.
+          They break again.
+          I debug again.
+          And somehow, we call that a career.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -78,17 +82,19 @@
             <span class="dot dot-red"></span>
             <span class="dot dot-yellow"></span>
             <span class="dot dot-green"></span>
-            <span class="terminal-title">student@ista-ntic: ~/portfolio</span>
+            <span class="terminal-title">2007082100112@ofppt-edu.ma: ~/portfolio</span>
           </div>
           <div class="terminal-body">
             <p class="term-line"><span class="term-prompt">$</span> whoami</p>
-            <p class="term-out">abdellah_zemran</p>
+            <p class="term-out">abdellah_zammrane</p>
             <p class="term-line"><span class="term-prompt">$</span> cat profile.json</p>
 <pre class="term-code"><span class="tk-punc">{</span>
-  <span class="tk-key">"role"</span><span class="tk-punc">:</span> <span class="tk-str">"Digital Development Student"</span><span class="tk-punc">,</span>
-  <span class="tk-key">"school"</span><span class="tk-punc">:</span> <span class="tk-str">"ISTA NTIC Tanger"</span><span class="tk-punc">,</span>
-  <span class="tk-key">"stack"</span><span class="tk-punc">:</span> <span class="tk-punc">[</span><span class="tk-str">"HTML"</span><span class="tk-punc">,</span> <span class="tk-str">"CSS"</span><span class="tk-punc">,</span> <span class="tk-str">"JS"</span><span class="tk-punc">,</span> <span class="tk-str">"PHP"</span><span class="tk-punc">,</span> <span class="tk-str">"MySQL"</span><span class="tk-punc">]</span><span class="tk-punc">,</span>
-  <span class="tk-key">"status"</span><span class="tk-punc">:</span> <span class="tk-str">"learning &amp; building"</span>
+    <span class="tk-key">"role"</span><span class="tk-punc">:</span> <span class="tk-str">"Digital Development Stagiare"</span><span class="tk-punc">,</span>
+    <span class="tk-key">"school"</span><span class="tk-punc">:</span> <span class="tk-str">"ISTA NTIC Tanger"</span><span class="tk-punc">,</span>
+    <span class="tk-key">"birth date"</span><span class="tk-punc">:</span> <span class="tk-str">"2007-08-21"</span><span class="tk-punc">,</span>
+    <span class="tk-key">"location"</span><span class="tk-punc">:</span> <span class="tk-str">"Morocco,Tanger,ibn Khaldoun"</span><span class="tk-punc">,</span>
+    <span class="tk-key">"class"</span><span class="tk-punc">:</span> <span class="tk-str">"DEVWFS-202"</span><span class="tk-punc">,</span>
+    <span class="tk-key">"training year"</span><span class="tk-punc">:</span> <span class="tk-str">"2026-2027"</span><span class="tk-punc">,</span>
 <span class="tk-punc">}</span></pre>
             <p class="term-line"><span class="term-prompt">$</span> <span class="term-cursor" aria-hidden="true">_</span></p>
           </div>
@@ -113,35 +119,41 @@
       <div class="about-grid">
         <div class="about-text" data-reveal>
           <p>
-            I'm <strong>Abdellah Zemran</strong>, a Digital Development student at
-            <strong>ISTA NTIC Tanger</strong>, in Tangier, Morocco. My training covers the full
-            web stack — from front-end structure and styling to server-side logic and databases —
-            and I use every assignment as a chance to write cleaner, more deliberate code than the
-            last one.
+              I'm <strong>ABDELLAH ZEMRAN</strong>, a Digital Development student at
+              <strong>ISTA NTIC Tanger</strong>, based in Tangier, Morocco. I'm learning
+              web development from front to back — building interfaces, writing logic,
+              working with databases, and figuring out why something suddenly stopped working.
           </p>
           <p>
-            Outside of class, I spend time experimenting with small personal projects to reinforce
-            what I'm learning. My goal is straightforward: keep improving as a developer, build a
-            portfolio of real, working projects, and be ready for a junior web development role
-            once I graduate.
+              I like learning by actually building things, whether it's a school project,
+              a small experiment, or something completely unnecessary but fun to make.
+              I'm still learning, still making mistakes, and still improving with every project.
+              My goal is simple: <strong>keep building, keep learning, and become a developer
+              capable of creating things that actually work.</strong>
           </p>
         </div>
 
         <div class="about-cards" data-reveal>
           <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">🎓</div>
+            <div class="info-card-icon" aria-hidden="true">
+              <i data-lucide="graduation-cap"></i>
+            </div>
             <h3>Education</h3>
             <p>Digital Development — ISTA NTIC Tanger</p>
           </div>
           <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">💻</div>
+            <div class="info-card-icon" aria-hidden="true">
+              <i data-lucide="code-2"></i>
+            </div>
             <h3>Focus</h3>
             <p>Web Development &amp; Programming</p>
           </div>
           <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">📍</div>
+            <div class="info-card-icon" aria-hidden="true">
+              <i data-lucide="map-pin"></i>
+            </div>
             <h3>Location</h3>
-            <p>Tangier, Morocco</p>
+            <p>Morocco, Tangier, Ibn Khaldoun</p>
           </div>
         </div>
       </div>
@@ -253,25 +265,55 @@
 
       <div class="contact-grid">
         <div class="contact-info" data-reveal>
-          <a class="contact-link" href="mailto:abdellah.zemran@example.com">
-            <span class="contact-icon" aria-hidden="true">✉</span>
+          <a class="contact-link" href="mailto:zamrannabbdlah@gmail.com" aria-label="Email" rel="noopener noreferrer">
+            <span class="contact-icon" aria-hidden="true">
+              <i data-lucide="mail"></i>
+            </span>
             <span>
               <span class="contact-label">Email</span>
-              <span class="contact-value">abdellah.zemran@example.com</span>
+              <span class="contact-value">zamrannabbdlah@gmail.com</span>
             </span>
           </a>
-          <a class="contact-link" href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
-            <span class="contact-icon" aria-hidden="true">⌥</span>
+          <a class="contact-link" href="tel:+212684829800" aria-label="Phone" rel="noopener noreferrer">
+            <span class="contact-icon" aria-hidden="true">
+              <i data-lucide="phone"></i>
+            </span>
+            <span>
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">+212-684829800</span>
+            </span>
+          </a>
+          <a class="contact-link" href="https://www.instagram.com/abdellah_zamrane/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon" aria-hidden="true">
+              <svg role="img" viewBox="0 0 24 24" aria-label="Instagram" width="30" height="30" xmlns="http://www.w3.org/2000/svg" style="fill: var(--cyan);">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+              </svg>
+            </span>
+            <span>
+              <span class="contact-label">Instagram</span>
+              <span class="contact-value">abdellah_zamrane</span>
+            </span>
+          </a>
+          <a class="contact-link" href="https://github.com/abdellahzammrane" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon" aria-hidden="true">
+              <svg role="img" viewBox="0 0 24 24" aria-label="GitHub" width="29" height="29" xmlns="http://www.w3.org/2000/svg" style="fill: var(--cyan);">
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/>
+              </svg>
+            </span>
             <span>
               <span class="contact-label">GitHub</span>
-              <span class="contact-value">github.com/your-username</span>
+              <span class="contact-value">abdellahzammrane</span>
             </span>
           </a>
-          <a class="contact-link" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
-            <span class="contact-icon" aria-hidden="true">in</span>
+          <a class="contact-link" href="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" target="_blank" rel="noopener noreferrer">
+            <svg role="img" viewBox="0 0 24 24" aria-label="LinkedIn" width="30" height="30" xmlns="http://www.w3.org/2000/svg" style="color: var(--cyan);">
+              <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path fill="currentColor" d="M8.2 9.4H5.8V18h2.4V9.4ZM7 5.3a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8ZM18.2 13.1c0-2.6-1.4-3.8-3.3-3.8-1.5 0-2.2.8-2.6 1.3V9.4H9.9V18h2.4v-4.3c0-1.1.2-2.2 1.6-2.2 1.4 0 1.4 1.3 1.4 2.2V18h2.4l.5-4.9Z"/>
+            </svg>
+            </span>
             <span>
               <span class="contact-label">LinkedIn</span>
-              <span class="contact-value">linkedin.com/in/your-profile</span>
+              <span class="contact-value">AbdellaH ZammRane</span>
             </span>
           </a>
         </div>
@@ -304,15 +346,15 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
-      <p class="footer-name">Abdellah Zemran</p>
-      <p class="footer-sub">Digital Development Student · Tangier, Morocco</p>
+      <p class="footer-name">AbdellaH ZammRane</p>
+      <p class="footer-sub">Digital Development Stagiaire · Tangier, Morocco</p>
     </div>
     <div class="footer-socials">
       <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
       <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-      <a href="mailto:abdellah.zemran@example.com" aria-label="Email">Email</a>
+      <a href="mailto:zamrannabbdlah@gmail.com" aria-label="Email">Email</a>
     </div>
-    <p class="footer-copy">&copy; <span id="year"></span> Abdellah Zemran. Built line by line.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> AbdellaH ZammRane. Built Line By Line, Word By Word.</p>
   </div>
 </footer>
 
@@ -331,6 +373,8 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/index.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="script.js"></script>
 </body>
 </html>
