@@ -1,3 +1,25 @@
+<?php
+// Vercel PHP Static Asset Router
+$request = $_SERVER['REQUEST_URI'];
+$filePath = __DIR__ . parse_url($request, PHP_URL_PATH);
+
+if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
+    $ext = pathinfo($filePath, PATHINFO_EXTENSION);
+    $mimes = [
+        'css' => 'text/css',
+        'js'  => 'text/javascript',
+        'png' => 'image/png',
+        'jpg' => 'image/jpeg',
+        'ico' => 'image/x-icon',
+        'svg' => 'image/svg+xml'
+    ];
+    if (isset($mimes[$ext])) {
+        header("Content-Type: " . $mimes[$ext]);
+        readfile($filePath);
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
