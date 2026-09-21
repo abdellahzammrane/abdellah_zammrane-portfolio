@@ -54,18 +54,10 @@ const projectsData = [
 ];
 
 const exercisesData = [
-  { title: "Responsive Card Layout", module: "HTML/CSS", category: "html-css", description: "Practicing CSS Grid and Flexbox to build a responsive card layout with breakpoints.", codeUrl: "https://github.com/your-username/exercises/html-css/card-layout", downloadUrl: "#" },
-  { title: "Form Validation Basics", module: "HTML/CSS", category: "html-css", description: "Custom form styling with native HTML5 validation states and accessible error messages.", codeUrl: "https://github.com/your-username/exercises/html-css/form-validation", downloadUrl: "#" },
-  { title: "DOM Manipulation Drills", module: "JavaScript", category: "javascript", description: "A set of exercises covering querySelector, event delegation and dynamic element creation.", codeUrl: "https://github.com/your-username/exercises/js/dom-drills", downloadUrl: "#" },
-  { title: "Array Methods Practice", module: "JavaScript", category: "javascript", description: "Solving small problems using map, filter, reduce and sort to reinforce array fundamentals.", codeUrl: "https://github.com/your-username/exercises/js/array-methods", downloadUrl: "#" },
-  { title: "Login System with Sessions", module: "PHP", category: "php", description: "A basic login/logout flow using PHP sessions and server-side form validation.", codeUrl: "https://github.com/your-username/exercises/php/login-sessions", downloadUrl: "#" },
-  { title: "CRUD with PDO", module: "PHP", category: "php", description: "Create, read, update and delete records from a MySQL table using PHP's PDO extension.", codeUrl: "https://github.com/your-username/exercises/php/crud-pdo", downloadUrl: "#" },
-  { title: "Joins & Subqueries Lab", module: "SQL", category: "sql", description: "A set of queries practicing INNER/LEFT joins, subqueries and aggregate functions.", codeUrl: "https://github.com/your-username/exercises/sql/joins-subqueries", downloadUrl: "#" },
-  { title: "Database Normalization Exercise", module: "SQL", category: "sql", description: "Redesigning an unnormalized schema into 1NF, 2NF and 3NF with an ER diagram.", codeUrl: "https://github.com/your-username/exercises/sql/normalization", downloadUrl: "#" },
-  { title: "File Handling Scripts", module: "Python", category: "python", description: "Small scripts for reading, writing and parsing text/CSV files using Python's standard library.", codeUrl: "https://github.com/your-username/exercises/python/file-handling", downloadUrl: "#" },
-  { title: "Basic Algorithms Set", module: "Python", category: "python", description: "Implementations of sorting and searching algorithms with complexity notes.", codeUrl: "https://github.com/your-username/exercises/python/algorithms", downloadUrl: "#" },
-  { title: "Use Case Diagram — Library System", module: "UML", category: "uml", description: "A use case diagram modeling actors and interactions for a library management system.", codeUrl: "https://github.com/your-username/exercises/uml/library-use-case", downloadUrl: "#" },
-  { title: "Class Diagram — E-Commerce", module: "UML", category: "uml", description: "A class diagram covering entities, attributes and relationships for an online store.", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "#" },
+{ title: "All types of diagrams, Control", module: "UML", category: "uml", description: "L'atelier UML traite du processus de vente immobilière en utilisant tous les diagrammes principaux..", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "#" },
+{title:"Figma Partie 1", module:"Figma", category:"figma", description:"L'atelier Figma Partie 1, il contient trois exercices sur les bases de Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"#"},
+{title:"Figma Partie 2", module:"Figma", category:"figma", description:"L'atelier_Figma_Partie 2_Outils avancés, il contient un seul exercice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"#"},
+
 ];
 
 const presentationsData = [
@@ -177,7 +169,7 @@ function renderPresentations() {
 
   grid.innerHTML = presentationsData.map((p, index) => `
     <article class="presentation-card">
-      <div class="presentation-preview" aria-hidden="true">📊</div>
+      <div class="presentation-preview" aria-hidden="true"><i data-lucide="presentation"></i></div>
       <div class="presentation-body">
         <span class="presentation-subject">${escapeHtml(p.subject)}</span>
         <h3 class="presentation-title">${escapeHtml(p.title)}</h3>
@@ -337,7 +329,7 @@ function initBackToTop() {
    --------------------------------------------------------- */
 
 function initHeroCounters() {
-  const counters = $$(".hero-stat-num");
+  const counters = $$(".hero-stat-num, .tilt-stat strong");
   if (counters.length === 0) return;
 
   const animateCounter = (el) => {
@@ -426,6 +418,168 @@ function initContactForm() {
 }
 
 /* ---------------------------------------------------------
+   12b. FLOATING LANGUAGE BUBBLES
+   --------------------------------------------------------- */
+
+const bubbleLanguages = ["HTML", "CSS", "JS", "PHP", "SQL", "Python", "MySQL", "Bootstrap", "Git", "UML", "</>", "{}"];
+
+function initBubbles() {
+  const field = $("#bubbleField");
+  if (!field || prefersReducedMotion) return;
+
+  const count = window.innerWidth < 760 ? 0 : 16;
+
+  for (let i = 0; i < count; i++) {
+    const bubble = document.createElement("span");
+    bubble.className = "bubble";
+    bubble.textContent = bubbleLanguages[i % bubbleLanguages.length];
+
+    const size = 34 + Math.random() * 34;
+    const left = Math.random() * 100;
+    const duration = 14 + Math.random() * 14;
+    const delay = Math.random() * -duration;
+    const drift = (Math.random() * 80 - 40).toFixed(0) + "px";
+    const fontSize = size < 46 ? "0.68rem" : "0.78rem";
+
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${left}%`;
+    bubble.style.fontSize = fontSize;
+    bubble.style.animationDuration = `${duration}s`;
+    bubble.style.animationDelay = `${delay}s`;
+    bubble.style.setProperty("--drift", drift);
+
+    field.appendChild(bubble);
+  }
+}
+
+/* ---------------------------------------------------------
+   12c. HERO TYPEWRITER
+   --------------------------------------------------------- */
+
+const typewriterPhrases = [
+  "Digital Development Student",
+  "Future Web Developer",
+  "Curious Problem Solver",
+  "Professional Bug Creator (and Fixer)",
+];
+
+function initTypewriter() {
+  const el = $("#typewriter");
+  if (!el) return;
+
+  if (prefersReducedMotion) {
+    el.textContent = typewriterPhrases[0];
+    return;
+  }
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function tick() {
+    const current = typewriterPhrases[phraseIndex];
+
+    if (!isDeleting) {
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(tick, 1600);
+        return;
+      }
+    } else {
+      charIndex--;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+      }
+    }
+
+    const speed = isDeleting ? 35 : 65;
+    setTimeout(tick, speed);
+  }
+
+  tick();
+}
+
+/* ---------------------------------------------------------
+   12d. THEME TOGGLE (light / dark)
+   --------------------------------------------------------- */
+
+function initThemeToggle() {
+  const toggle = $("#themeToggle");
+  if (!toggle) return;
+
+  const stored = localStorage.getItem("theme");
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  const initial = stored || (prefersLight ? "light" : "dark");
+
+  if (initial === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+
+  toggle.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    }
+  });
+}
+
+/* ---------------------------------------------------------
+   12e. ABOUT TILT CARD
+   --------------------------------------------------------- */
+
+function initTiltCard() {
+  const card = $("#tiltCard");
+  if (!card || prefersReducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
+
+  const maxTilt = 10;
+
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `rotateY(${x * maxTilt * 2}deg) rotateX(${-y * maxTilt * 2}deg)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateY(0deg) rotateX(0deg)";
+  });
+}
+
+/* ---------------------------------------------------------
+   12f. SKILL BARS — animate fill when scrolled into view
+   --------------------------------------------------------- */
+
+function initSkillBars() {
+  const categories = $$("[data-skill-category]");
+  if (categories.length === 0) return;
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    categories.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  categories.forEach((el) => observer.observe(el));
+}
+
+/* ---------------------------------------------------------
    12. TOAST
    --------------------------------------------------------- */
 
@@ -471,8 +625,15 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroCounters();
   initContactForm();
   setFooterYear();
+
+  initThemeToggle();
+  initBubbles();
+  initTypewriter();
+  initTiltCard();
+  initSkillBars();
+
+  // Runs last so icons injected by the render functions above
+  // (e.g. presentation cards) are converted too.
+  lucide.createIcons();
 }
 );
-
-// for icons...
-lucide.createIcons();

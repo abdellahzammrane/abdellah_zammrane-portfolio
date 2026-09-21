@@ -29,13 +29,20 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <meta name="description" content="Portfolio of Abdellah Zemran, Digital Development student at ISTA NTIC Tanger — academic projects, exercises, presentations and skills.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="public/images/Favicon.png">
 </head>
 <body>
 
 <div class="grain" aria-hidden="true"></div>
+
+<div class="aurora-bg" aria-hidden="true">
+  <span class="aurora-blob b1"></span>
+  <span class="aurora-blob b2"></span>
+  <span class="aurora-blob b3"></span>
+  <span class="aurora-blob b4"></span>
+</div>
 
 <!-- ============ NAVBAR ============ -->
 <header class="navbar" id="navbar">
@@ -44,19 +51,28 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       <span class="nav-logo-bracket">&lt;</span>AZ<span class="nav-logo-bracket">/&gt;</span>
     </a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#exercises" class="nav-link" data-section="exercises">Exercises</a></li>
+        <li><a href="#presentations" class="nav-link" data-section="presentations">Presentations</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
-      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-      <li><a href="#exercises" class="nav-link" data-section="exercises">Exercises</a></li>
-      <li><a href="#presentations" class="nav-link" data-section="presentations">Presentations</a></li>
-      <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
-      <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
-    </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -64,11 +80,12 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="home">
+    <div class="bubble-field" id="bubbleField" aria-hidden="true"></div>
     <div class="hero-container">
       <div class="hero-text" data-reveal>
         <p class="hero-kicker">Digital Development — ISTA NTIC Tanger</p>
         <h1 class="hero-title">AbdellaH <span class="family_name">ZammRane</span></h1>
-        <p class="hero-role">Digital Development Student &amp; Future Web Developer</p>
+        <p class="hero-role"><span id="typewriter"></span><span class="typewriter-cursor">&nbsp;</span></p>
         <p class="hero-desc">
           Where I spend 20% of my time writing code and 80% wondering why the code doesn't work.
           I tell computers what to do for a living.
@@ -139,8 +156,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       </div>
 
       <div class="about-grid">
-        <div class="about-text" data-reveal>
-          <p>
+        <div class="about-text" data-reveal><p>
               I'm <strong>ABDELLAH ZEMRAN</strong>, a Digital Development student at
               <strong>ISTA NTIC Tanger</strong>, based in Tangier, Morocco. I'm learning
               web development from front to back — building interfaces, writing logic,
@@ -153,29 +169,45 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               My goal is simple: <strong>keep building, keep learning, and become a developer
               capable of creating things that actually work.</strong>
           </p>
+          <div class="about-taglist">
+            <span class="about-tag"><i data-lucide="graduation-cap"></i>Digital Development</span>
+            <span class="about-tag"><i data-lucide="puzzle"></i>Problem Solver</span>
+            <span class="about-tag"><i data-lucide="bug"></i>Professional Debugger</span>
+            <span class="about-tag"><i data-lucide="map-pin"></i>Tangier, Morocco</span>
+          </div>
         </div>
 
         <div class="about-cards" data-reveal>
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <i data-lucide="graduation-cap"></i>
+          <span class="about-orbit-icon">JS</span>
+          <span class="about-orbit-icon">PHP</span>
+          <span class="about-orbit-icon">SQL</span>
+          <span class="about-orbit-icon">CSS</span>
+
+          <div class="tilt-card" id="tiltCard">
+            <div class="tilt-card-inner">
+              <div class="tilt-card-avatar">AZ</div>
+              <h3>Abdellah Zemran</h3>
+              <p class="tilt-role">Digital Development Student</p>
+
+              <div class="tilt-stats">
+                <div class="tilt-stat"><strong data-count="12">0</strong><span>Projects</span></div>
+                <div class="tilt-stat"><strong data-count="20">0</strong><span>Exercises</span></div>
+                <div class="tilt-stat"><strong data-count="7">0</strong><span>Tech</span></div>
+              </div>
+
+              <div class="tilt-info-row">
+                <i data-lucide="graduation-cap"></i>
+                <span>ISTA NTIC Tanger</span>
+              </div>
+              <div class="tilt-info-row">
+                <i data-lucide="code-2"></i>
+                <span>Web Development &amp; Programming</span>
+              </div>
+              <div class="tilt-info-row">
+                <i data-lucide="map-pin"></i>
+                <span>Morocco, Tangier, Ibn Khaldoun</span>
+              </div>
             </div>
-            <h3>Education</h3>
-            <p>Digital Development — ISTA NTIC Tanger</p>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <i data-lucide="code-2"></i>
-            </div>
-            <h3>Focus</h3>
-            <p>Web Development &amp; Programming</p>
-          </div>
-          <div class="info-card">
-            <div class="info-card-icon" aria-hidden="true">
-              <i data-lucide="map-pin"></i>
-            </div>
-            <h3>Location</h3>
-            <p>Morocco, Tangier, Ibn Khaldoun</p>
           </div>
         </div>
       </div>
@@ -212,6 +244,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
         <button class="filter-btn" data-filter="sql">SQL</button>
         <button class="filter-btn" data-filter="python">Python</button>
         <button class="filter-btn" data-filter="uml">UML</button>
+        <button class="filter-btn" data-filter="figma">Figma</button>
       </div>
 
       <div class="exercise-grid" id="exerciseGrid" data-reveal>
@@ -237,36 +270,72 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
   <!-- ============ SKILLS ============ -->
   <section class="section" id="skills">
     <div class="section-container">
-      <div class="section-head" data-reveal>
-        <h2 class="section-title">Skills</h2>
-        <p class="section-sub">Technologies I use and am actively developing.</p>
+      <div class="section-head skills-head-row" data-reveal>
+        <div>
+          <h2 class="section-title">Skills</h2>
+          <p class="section-sub">Technologies I use and am actively developing.</p>
+        </div>
+        <a href="public/cv/Abdellah_Zemran_CV.pdf" class="btn btn-cv" download>
+          <i data-lucide="download"></i>
+          <span>Download CV</span>
+        </a>
       </div>
 
-      <div class="skills-grid" data-reveal>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">Front-End</h3>
-          <div class="skill-badges">
-            <span class="skill-badge">HTML5</span>
-            <span class="skill-badge">CSS3</span>
-            <span class="skill-badge">JavaScript</span>
-            <span class="skill-badge">Bootstrap</span>
+      <div class="skills-grid" data-reveal id="skillsGrid">
+        <div class="skill-category" data-skill-category>
+          <div class="skill-cat-head">
+            <i data-lucide="layout-panel-left"></i>
+            <h3 class="skill-cat-title">Front-End</h3>
+          </div>
+          <div class="skill-item" style="--level:88%">
+            <div class="skill-item-head"><span>HTML5</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+          </div>
+          <div class="skill-item" style="--level:82%">
+            <div class="skill-item-head"><span>CSS3</span><span>82%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+          </div>
+          <div class="skill-item" style="--level:75%">
+            <div class="skill-item-head"><span>JavaScript</span><span>75%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+          </div>
+          <div class="skill-item" style="--level:65%">
+            <div class="skill-item-head"><span>Bootstrap</span><span>65%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
         </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">Back-End</h3>
-          <div class="skill-badges">
-            <span class="skill-badge">PHP</span>
-            <span class="skill-badge">MySQL</span>
+
+        <div class="skill-category" data-skill-category>
+          <div class="skill-cat-head">
+            <i data-lucide="server"></i>
+            <h3 class="skill-cat-title">Back-End</h3>
+          </div>
+          <div class="skill-item" style="--level:70%">
+            <div class="skill-item-head"><span>PHP</span><span>70%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+          </div>
+          <div class="skill-item" style="--level:68%">
+            <div class="skill-item-head"><span>MySQL</span><span>68%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
         </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">Programming</h3>
-          <div class="skill-badges">
-            <span class="skill-badge">Python</span>
+
+        <div class="skill-category" data-skill-category>
+          <div class="skill-cat-head">
+            <i data-lucide="terminal"></i>
+            <h3 class="skill-cat-title">Programming</h3>
+          </div>
+          <div class="skill-item" style="--level:60%">
+            <div class="skill-item-head"><span>Python</span><span>60%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
         </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">Tools</h3>
+
+        <div class="skill-category" data-skill-category>
+          <div class="skill-cat-head">
+            <i data-lucide="wrench"></i>
+            <h3 class="skill-cat-title">Tools</h3>
+          </div>
           <div class="skill-badges">
             <span class="skill-badge">Git / GitHub</span>
             <span class="skill-badge">VS Code</span>
@@ -351,7 +420,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           </div>
           <div class="form-row">
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" required></textarea>
+            <textarea id="cf-message" name="message" rows="3" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary form-submit">
             <span class="btn-label">Send Message</span>
@@ -372,20 +441,24 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       <p class="footer-sub">Digital Development Stagiaire · Tangier, Morocco</p>
     </div>
     <div class="footer-socials">
-      <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-      <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://github.com/abdellahzammrane" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+      <a href="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
       <a href="mailto:zamrannabbdlah@gmail.com" aria-label="Email">Email</a>
     </div>
     <p class="footer-copy">&copy; <span id="year"></span> AbdellaH ZammRane. Built Line By Line, Word By Word.</p>
   </div>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i data-lucide="arrow-up"></i>
+</button>
 
 <!-- ============ MODAL (shared: code / presentation preview) ============ -->
 <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="Close preview">&times;</button>
+    <button class="modal-close" id="modalClose" aria-label="Close preview">
+      <i data-lucide="x"></i>
+    </button>
     <div class="modal-content" id="modalContent">
       <h3 id="modalTitle"></h3>
       <div id="modalBody"></div>
@@ -400,3 +473,4 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <script src="script.js"></script>
 </body>
 </html>
+
