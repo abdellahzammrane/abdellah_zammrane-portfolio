@@ -6,6 +6,13 @@
   },
   "routes": [
     {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/docs/(.*)",
+      "dest": "/public/docs/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }

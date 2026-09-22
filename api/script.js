@@ -16,41 +16,6 @@ const projectsData = [
     github: "https://github.com/your-username/student-management-system",
     demo: "https://your-demo-link.example.com/student-management",
   },
-  {
-    title: "Restaurant Landing Page",
-    description: "A responsive single-page site for a fictional restaurant, focused on layout, typography and CSS animation.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/your-username/restaurant-landing",
-    demo: "https://your-demo-link.example.com/restaurant-landing",
-  },
-  {
-    title: "Task Tracker App",
-    description: "A lightweight to-do / task tracker with local storage persistence, filters and drag-to-reorder tasks.",
-    tech: ["JavaScript", "HTML", "CSS"],
-    github: "https://github.com/your-username/task-tracker",
-    demo: "https://your-demo-link.example.com/task-tracker",
-  },
-  {
-    title: "Library Database System",
-    description: "A relational database and query layer for managing book loans, members and due dates, plus a simple admin UI.",
-    tech: ["MySQL", "PHP"],
-    github: "https://github.com/your-username/library-database",
-    demo: "https://your-demo-link.example.com/library-database",
-  },
-  {
-    title: "Weather Dashboard",
-    description: "A small dashboard that fetches and displays weather data with a clean, card-based interface.",
-    tech: ["Python", "HTML", "CSS"],
-    github: "https://github.com/your-username/weather-dashboard",
-    demo: "https://your-demo-link.example.com/weather-dashboard",
-  },
-  {
-    title: "E-Commerce Product Page",
-    description: "A responsive product listing and detail page with cart interactions, built to practice component-style CSS.",
-    tech: ["HTML", "CSS", "Bootstrap"],
-    github: "https://github.com/your-username/ecommerce-product-page",
-    demo: "https://your-demo-link.example.com/ecommerce-product-page",
-  },
 ];
 
 const exercisesData = [
@@ -61,9 +26,6 @@ const exercisesData = [
 ];
 
 const presentationsData = [
-  { title: "Introduction to Web Semantics", subject: "HTML/CSS Module", description: "A presentation on semantic HTML5 elements and why they matter for accessibility and SEO.", fileUrl: "#" },
-  { title: "JavaScript Event Loop Explained", subject: "JavaScript Module", description: "A walkthrough of the call stack, task queue and how asynchronous JavaScript actually runs.", fileUrl: "#" },
-  { title: "Relational Databases 101", subject: "SQL Module", description: "Core concepts of relational databases: tables, keys, normalization and relationships.", fileUrl: "#" },
   { title: "Building REST APIs with PHP", subject: "PHP Module", description: "An overview of REST principles and a live-coded example of a small PHP API.", fileUrl: "#" },
 ];
 
