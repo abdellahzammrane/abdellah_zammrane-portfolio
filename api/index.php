@@ -31,7 +31,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="public/images/Favicon.png">
+<link rel="icon" type="image/png" href="/images/Favicon.png">
 </head>
 <body>
 
@@ -339,7 +339,13 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <div class="skill-badges">
             <span class="skill-badge">Git / GitHub</span>
             <span class="skill-badge">VS Code</span>
+            <span class="skill-badge">Pycharm</span>
             <span class="skill-badge">UML</span>
+            <span class="skill-badge">Figma</span>
+            <span class="skill-badge">Claude / IA</span>
+            <span class="skill-badge">CapCut</span>
+            <span class="skill-badge">Canva</span>
+            <span class="skill-badge">...</span>
           </div>
         </div>
       </div>

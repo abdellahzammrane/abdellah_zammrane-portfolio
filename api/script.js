@@ -10,11 +10,12 @@
 
 const projectsData = [
   {
-    title: "Student Management System",
-    description: "A full CRUD web app to register students, manage classes and track grades, built as a semester capstone project.",
-    tech: ["PHP", "MySQL", "Bootstrap"],
-    github: "https://github.com/your-username/student-management-system",
-    demo: "https://your-demo-link.example.com/student-management",
+    title: "PIE - Soutenance de projet KeyTracker KagiTech",
+    description: "Projet / Soutenance de projet KeyTracker KagiTech, réalisé dans le cadre du module de Projet d'Intégration et d'Entreprise (PIE).",
+    tech: ["HTML", "CSS", "JS"],
+    image: "/images/kagitech.png", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
+    github: "https://github.com/abdellahzammrane/PIE-Project-the-final-version/blob/main/index.html",
+    demo: "https://abdellahzammrane.github.io/PIE-Project-the-final-version/",
   },
 ];
 
@@ -48,7 +49,9 @@ function renderProjects() {
 
   grid.innerHTML = projectsData.map((project) => `
     <article class="project-card">
-      <div class="project-thumb"><span>${escapeHtml(project.title)}</span></div>
+      <div class="project-thumb">
+        <img src="${project.image}" alt="${escapeHtml(project.title)}" class="project-img" loading="lazy" />
+      </div>
       <div class="project-body">
         <h3 class="project-title">${escapeHtml(project.title)}</h3>
         <p class="project-desc">${escapeHtml(project.description)}</p>
