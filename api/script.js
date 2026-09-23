@@ -23,6 +23,7 @@ const exercisesData = [
 { title: "All types of diagrams, Control", module: "UML", category: "uml", description: "L'atelier UML traite du processus de vente immobilière en utilisant tous les diagrammes principaux..", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "/docs/les-diagrames.pdf" },
 {title:"Figma Partie 1", module:"Figma", category:"figma", description:"L'atelier Figma Partie 1, il contient trois exercices sur les bases de Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-1.pdf"},
 {title:"Figma Partie 2", module:"Figma", category:"figma", description:"L'atelier_Figma_Partie 2_Outils avancés, il contient un seul exercice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-2.png"},
+{title:"Figma Ficilo application mobile", module:"Figma", category:"figma", description:"My first figma application practice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
 
 ];
 
