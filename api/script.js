@@ -276,6 +276,35 @@ function initScrollReveal() {
 }
 
 /* ---------------------------------------------------------
+   9b. SCROLL PROGRESS BAR
+   --------------------------------------------------------- */
+
+function initScrollProgress() {
+  const fill = $("#scrollProgressFill");
+  if (!fill) return;
+
+  let ticking = false;
+
+  const update = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const pct = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+    fill.style.width = pct + "%";
+    ticking = false;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener("resize", update);
+  update();
+}
+
+/* ---------------------------------------------------------
    9. BACK TO TOP
    --------------------------------------------------------- */
 
@@ -297,6 +326,21 @@ function initBackToTop() {
 function initHeroCounters() {
   const counters = $$(".hero-stat-num, .tilt-stat strong");
   if (counters.length === 0) return;
+
+  // Real counts, pulled straight from the content data above —
+  // no more hardcoded numbers to forget to update.
+  const realCounts = {
+    projects: projectsData.length,
+    exercises: exercisesData.length,
+    presentations: presentationsData.length,
+  };
+
+  counters.forEach((el) => {
+    const stat = el.dataset.stat;
+    if (stat && stat in realCounts) {
+      el.dataset.count = realCounts[stat];
+    }
+  });
 
   const animateCounter = (el) => {
     const target = Number(el.dataset.count);
@@ -521,6 +565,47 @@ function initTiltCard() {
 }
 
 /* ---------------------------------------------------------
+   12e-2. 3D TILT ON PROJECT / EXERCISE / PRESENTATION / SKILL CARDS
+   Uses delegation so it keeps working after renderProjects() etc.
+   redraw the grids — no need to re-bind after every render.
+   --------------------------------------------------------- */
+
+function initCardTilt() {
+  if (prefersReducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
+
+  const selector = ".project-card, .exercise-card, .presentation-card, .skill-category";
+  const maxTilt = 7;
+  let current = null;
+
+  const settle = (el) => {
+    el.style.transition = "transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease)";
+    el.style.transform = "";
+  };
+
+  document.addEventListener("mousemove", (e) => {
+    const card = e.target.closest(selector);
+
+    if (card !== current) {
+      if (current) settle(current);
+      current = card;
+      if (card) card.style.transition = "transform 0.08s linear";
+    }
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform =
+      `perspective(900px) rotateY(${(x * maxTilt * 2).toFixed(2)}deg) ` +
+      `rotateX(${(-y * maxTilt * 2).toFixed(2)}deg) translateY(-6px) scale(1.015)`;
+  }, { passive: true });
+
+  document.addEventListener("mouseleave", () => {
+    if (current) { settle(current); current = null; }
+  });
+}
+
+/* ---------------------------------------------------------
    12f. SKILL BARS — animate fill when scrolled into view
    --------------------------------------------------------- */
 
@@ -556,6 +641,47 @@ function showToast(message) {
   toast.classList.add("is-visible");
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => toast.classList.remove("is-visible"), 3200);
+}
+
+/* ---------------------------------------------------------
+   12g. COPY-TO-CLIPBOARD BUTTONS
+   --------------------------------------------------------- */
+
+function initCopyButtons() {
+  $$(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const text = btn.dataset.copy || "";
+      let copied = true;
+
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        } catch {
+          copied = false;
+        }
+      }
+
+      if (copied) {
+        btn.classList.add("is-copied");
+        setTimeout(() => btn.classList.remove("is-copied"), 1500);
+        showToast(`Copied: ${text}`);
+      } else {
+        showToast("Couldn't copy — please copy it manually.");
+      }
+    });
+  });
 }
 
 /* ---------------------------------------------------------
@@ -596,7 +722,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initBubbles();
   initTypewriter();
   initTiltCard();
+  initCardTilt();
   initSkillBars();
+  initScrollProgress();
+  initCopyButtons();
 
   // Runs last so icons injected by the render functions above
   // (e.g. presentation cards) are converted too.

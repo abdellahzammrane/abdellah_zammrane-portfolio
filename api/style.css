@@ -315,6 +315,35 @@ h1, h2, h3, h4 {
   border-bottom-color: var(--border);
 }
 
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+  pointer-events: none;
+}
+.scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--blue), var(--cyan));
+  background-size: 300% 100%;
+  box-shadow: 0 0 12px rgba(91, 124, 250, 0.7), 0 0 4px rgba(53, 226, 224, 0.6);
+  animation: scrollProgressShimmer 4s linear infinite;
+  transition: width 0.1s linear;
+}
+@keyframes scrollProgressShimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-fill { animation: none; }
+}
+
 .nav-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -733,6 +762,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02);
   overflow: hidden;
   position: relative;
+  transition: background var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
   z-index: 2;
 }
 
@@ -946,6 +976,7 @@ h1, h2, h3, h4 {
   padding: 32px 26px;
   text-align: center;
   transform: translateZ(20px);
+  transition: background var(--dur-med) var(--ease);
 }
 
 .tilt-card-avatar {
@@ -1021,7 +1052,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease);
+  transition: transform var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease), background var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
 }
 .project-card:hover {
   transform: translateY(-6px);
@@ -1081,7 +1112,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), background var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
 }
 .exercise-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
 
@@ -1130,7 +1161,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
+  transition: transform var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease), background var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
 }
 .presentation-card:hover { transform: translateY(-6px); border-color: var(--border-strong); }
 
@@ -1175,7 +1206,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-md);
   padding: 26px 24px;
   overflow: hidden;
-  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
 }
 .skill-category::before {
   content: '';
@@ -1242,7 +1273,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border);
   font-size: 0.85rem;
   color: var(--text);
-  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-med) var(--ease);
 }
 .skill-badge:hover {
   border-color: var(--cyan);
@@ -1270,9 +1301,37 @@ h1, h2, h3, h4 {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 .contact-link:hover { border-color: var(--cyan); transform: translateX(4px); }
+
+.copy-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.copy-btn svg { width: 16px; height: 16px; }
+.copy-btn:hover { background: rgba(255,255,255,0.06); border-color: var(--border-strong); color: var(--text); }
+.copy-btn:active { transform: scale(0.88); }
+
+.copy-icon-idle { display: flex; }
+.copy-icon-done { display: none; }
+.copy-btn.is-copied {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: var(--cyan-soft);
+}
+.copy-btn.is-copied .copy-icon-idle { display: none; }
+.copy-btn.is-copied .copy-icon-done { display: flex; }
 
 .contact-icon {
   width: 40px; height: 40px;
@@ -1296,7 +1355,7 @@ h1, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background var(--dur-med) var(--ease);
 }
 
 .contact-form:hover {
@@ -1314,7 +1373,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
-  transition: border-color var(--dur-fast) var(--ease);
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-med) var(--ease);
   resize: vertical;
 }
 .form-row input:focus, .form-row textarea:focus {
@@ -1388,7 +1447,7 @@ h1, h2, h3, h4 {
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
-  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), background var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
   z-index: 60;
 }
 .back-to-top svg { width: 19px; height: 19px; }
@@ -1424,7 +1483,7 @@ h1, h2, h3, h4 {
   overflow-y: auto;
   position: relative;
   transform: scale(0.96) translateY(8px);
-  transition: transform var(--dur-med) var(--ease);
+  transition: transform var(--dur-med) var(--ease), background var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
 }
 .modal-overlay.is-open .modal { transform: scale(1) translateY(0); }
 
@@ -1483,7 +1542,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 12px 30px -10px rgba(0,0,0,0.5);
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease), background var(--dur-med) var(--ease), color var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
   z-index: 300;
 }
 .toast.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); }

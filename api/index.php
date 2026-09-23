@@ -73,6 +73,9 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
         </button>
       </div>
     </div>
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+    </div>
   </nav>
 </header>
 
@@ -101,16 +104,16 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-num" data-count="12">0</span>
+            <span class="hero-stat-num" data-stat="projects" data-count="0">0</span>
             <span class="hero-stat-label">Projects</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-num" data-count="20">0</span>
+            <span class="hero-stat-num" data-stat="exercises" data-count="0">0</span>
             <span class="hero-stat-label">Exercises</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-num" data-count="7">0</span>
-            <span class="hero-stat-label">Technologies</span>
+            <span class="hero-stat-num" data-stat="presentations" data-count="0">0</span>
+            <span class="hero-stat-label">Presentations</span>
           </div>
         </div>
       </div>
@@ -190,9 +193,9 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <p class="tilt-role">Digital Development Student</p>
 
               <div class="tilt-stats">
-                <div class="tilt-stat"><strong data-count="12">0</strong><span>Projects</span></div>
-                <div class="tilt-stat"><strong data-count="20">0</strong><span>Exercises</span></div>
-                <div class="tilt-stat"><strong data-count="7">0</strong><span>Tech</span></div>
+                <div class="tilt-stat"><strong data-stat="projects" data-count="0">0</strong><span>Projects</span></div>
+                <div class="tilt-stat"><strong data-stat="exercises" data-count="0">0</strong><span>Exercises</span></div>
+                <div class="tilt-stat"><strong data-stat="presentations" data-count="0">0</strong><span>Talks</span></div>
               </div>
 
               <div class="tilt-info-row">
@@ -370,6 +373,10 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="contact-label">Email</span>
               <span class="contact-value">zamrannabbdlah@gmail.com</span>
             </span>
+            <button type="button" class="copy-btn" data-copy="zamrannabbdlah@gmail.com" aria-label="Copy email to clipboard">
+              <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
+              <span class="copy-icon-done"><i data-lucide="check"></i></span>
+            </button>
           </a>
           <a class="contact-link" href="tel:+212684829800" aria-label="Phone" rel="noopener noreferrer">
             <span class="contact-icon" aria-hidden="true">
@@ -379,6 +386,10 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="contact-label">Phone</span>
               <span class="contact-value">+212-684829800</span>
             </span>
+            <button type="button" class="copy-btn" data-copy="+212684829800" aria-label="Copy phone number to clipboard">
+              <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
+              <span class="copy-icon-done"><i data-lucide="check"></i></span>
+            </button>
           </a>
           <a class="contact-link" href="https://www.instagram.com/abdellah_zamrane/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <span class="contact-icon" aria-hidden="true">
@@ -390,6 +401,10 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="contact-label">Instagram</span>
               <span class="contact-value">abdellah_zamrane</span>
             </span>
+            <button type="button" class="copy-btn" data-copy="abdellah_zamrane" aria-label="Copy Instagram handle to clipboard">
+              <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
+              <span class="copy-icon-done"><i data-lucide="check"></i></span>
+            </button>
           </a>
           <a class="contact-link" href="https://github.com/abdellahzammrane" target="_blank" rel="noopener noreferrer">
             <span class="contact-icon" aria-hidden="true">
@@ -401,17 +416,26 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="contact-label">GitHub</span>
               <span class="contact-value">abdellahzammrane</span>
             </span>
+            <button type="button" class="copy-btn" data-copy="abdellahzammrane" aria-label="Copy GitHub username to clipboard">
+              <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
+              <span class="copy-icon-done"><i data-lucide="check"></i></span>
+            </button>
           </a>
           <a class="contact-link" href="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" target="_blank" rel="noopener noreferrer">
-            <svg role="img" viewBox="0 0 24 24" aria-label="LinkedIn" width="30" height="30" xmlns="http://www.w3.org/2000/svg" style="color: var(--cyan);">
-              <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/>
-              <path fill="currentColor" d="M8.2 9.4H5.8V18h2.4V9.4ZM7 5.3a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8ZM18.2 13.1c0-2.6-1.4-3.8-3.3-3.8-1.5 0-2.2.8-2.6 1.3V9.4H9.9V18h2.4v-4.3c0-1.1.2-2.2 1.6-2.2 1.4 0 1.4 1.3 1.4 2.2V18h2.4l.5-4.9Z"/>
-            </svg>
+            <span class="contact-icon" aria-hidden="true">
+              <svg role="img" viewBox="0 0 24 24" aria-label="LinkedIn" width="30" height="30" xmlns="http://www.w3.org/2000/svg" style="color: var(--cyan);">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path fill="currentColor" d="M8.2 9.4H5.8V18h2.4V9.4ZM7 5.3a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8ZM18.2 13.1c0-2.6-1.4-3.8-3.3-3.8-1.5 0-2.2.8-2.6 1.3V9.4H9.9V18h2.4v-4.3c0-1.1.2-2.2 1.6-2.2 1.4 0 1.4 1.3 1.4 2.2V18h2.4l.5-4.9Z"/>
+              </svg>
             </span>
             <span>
               <span class="contact-label">LinkedIn</span>
               <span class="contact-value">AbdellaH ZammRane</span>
             </span>
+            <button type="button" class="copy-btn" data-copy="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" aria-label="Copy LinkedIn link to clipboard">
+              <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
+              <span class="copy-icon-done"><i data-lucide="check"></i></span>
+            </button>
           </a>
         </div>
 
