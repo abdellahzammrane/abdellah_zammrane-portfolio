@@ -24,11 +24,12 @@ const exercisesData = [
 {title:"Figma Partie 1", module:"Figma", category:"figma", description:"L'atelier Figma Partie 1, il contient trois exercices sur les bases de Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-1.pdf"},
 {title:"Figma Partie 2", module:"Figma", category:"figma", description:"L'atelier_Figma_Partie 2_Outils avancés, il contient un seul exercice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-2.png"},
 {title:"Figma Ficilo application mobile", module:"Figma", category:"figma", description:"My first figma application practice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
+{title:"Atelier 2: Agile Scrum", module:"UML", category:"uml", description:"L'atelier Agile Scrum, il contient des questions que c est possible de poser dans le EFM.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier2_Agile_Scrum.pdf"},
 
 ];
 
 const presentationsData = [
-  { title: "Building REST APIs with PHP", subject: "PHP Module", description: "An overview of REST principles and a live-coded example of a small PHP API.", fileUrl: "#" },
+  { title: "Presentation about The Project Of Facilo", subject: "Mini_Project", description: "A presentation that s owns all types of diagrammes which are used in the project.", fileUrl: "/docs/Projet_FACILO.pptx" },
 ];
 
 /* ---------------------------------------------------------
