@@ -248,6 +248,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
         <button class="filter-btn" data-filter="python">Python</button>
         <button class="filter-btn" data-filter="uml">UML</button>
         <button class="filter-btn" data-filter="figma">Figma</button>
+        <button class="filter-btn" data-filter="git-github">Git/GitHub</button>
       </div>
 
       <div class="exercise-grid" id="exerciseGrid" data-reveal>
