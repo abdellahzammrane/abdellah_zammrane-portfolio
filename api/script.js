@@ -16,6 +16,13 @@ const projectsData = [
     image: "/images/kagitech.png", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
     github: "https://github.com/abdellahzammrane/PIE-Project-the-final-version/blob/main/index.html",
     demo: "https://abdellahzammrane.github.io/PIE-Project-the-final-version/",
+  }, {
+    title: "Facilo — Modern E-Commerce & Service Marketplace",
+    description: "A sleek, full-featured web marketplace designed for intuitive browsing and fast item discovery. Built with a clean architecture, customized authentication routing, interactive category dashboards, and a responsive luxury-themed user interface.",
+    tech: ["HTML", "CSS", "JS","Git","Github","Vercel"],
+    image: "/images/facilo.jpg", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
+    github: "https://github.com/abdellahzammrane/Facilo-Project-DEVWFS-202",
+    demo: "https://facilo-project-team-8uegg41py-fs-b332.vercel.app/home.html",
   },
 ];
 
