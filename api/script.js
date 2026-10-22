@@ -22,7 +22,7 @@ const projectsData = [
     tech: ["HTML", "CSS", "JS","Git","Github","Vercel"],
     image: "/images/facilo.jpg", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
     github: "https://github.com/abdellahzammrane/Facilo-Project-DEVWFS-202",
-    demo: "https://facilo-project-team-8uegg41py-fs-b332.vercel.app/home.html",
+    demo: "https://abdellahzammrane.github.io/Facilo-Project-DEVWFS-202/home.html",
   },
 ];
 
