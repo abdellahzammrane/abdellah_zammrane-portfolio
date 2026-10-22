@@ -18,7 +18,7 @@ const projectsData = [
     demo: "https://abdellahzammrane.github.io/PIE-Project-the-final-version/",
   }, {
     title: "Facilo — Modern E-Commerce & Service Marketplace",
-    description: "A sleek, full-featured web marketplace designed for intuitive browsing and fast item discovery. Built with a clean architecture, customized authentication routing, interactive category dashboards, and a responsive luxury-themed user interface.",
+    description: "A sleek, full-featured web marketplace designed for intuitive browsing and fast item discovery, built with a clean architecture.",
     tech: ["HTML", "CSS", "JS","Git","Github","Vercel"],
     image: "/images/facilo.jpg", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
     github: "https://github.com/abdellahzammrane/Facilo-Project-DEVWFS-202",
@@ -70,8 +70,8 @@ function renderProjects() {
           ${project.tech.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
         </div>
         <div class="card-actions">
-          <a class="btn btn-small" href="${project.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="btn btn-small" href="${project.demo}" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <a class="btn btn-small" href="${project.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="code-2" aria-hidden="true"></i>GitHub</a>
+          <a class="btn btn-small" href="${project.demo}" target="_blank" rel="noopener noreferrer"><i data-lucide="arrow-up-right" aria-hidden="true"></i>Live Demo</a>
         </div>
       </div>
     </article>
@@ -92,8 +92,8 @@ function renderExercises() {
       <h3 class="exercise-title">${escapeHtml(ex.title)}</h3>
       <p class="exercise-desc">${escapeHtml(ex.description)}</p>
       <div class="card-actions">
-        <button class="btn btn-small js-view-exercise" data-index="${index}">View Code</button>
-        <a class="btn btn-small" href="${ex.downloadUrl}" download>Download</a>
+        <button class="btn btn-small js-view-exercise" data-index="${index}"><i data-lucide="code-2" aria-hidden="true"></i>View Code</button>
+        <a class="btn btn-small" href="${ex.downloadUrl}" download><i data-lucide="download" aria-hidden="true"></i>Download</a>
       </div>
     </article>
   `).join("");
@@ -151,8 +151,8 @@ function renderPresentations() {
         <h3 class="presentation-title">${escapeHtml(p.title)}</h3>
         <p class="presentation-desc">${escapeHtml(p.description)}</p>
         <div class="card-actions">
-          <button class="btn btn-small js-view-presentation" data-index="${index}">View Presentation</button>
-          <a class="btn btn-small" href="${p.fileUrl}" download>Download</a>
+          <button class="btn btn-small js-view-presentation" data-index="${index}"><i data-lucide="presentation" aria-hidden="true"></i>View Presentation</button>
+          <a class="btn btn-small" href="${p.fileUrl}" download><i data-lucide="download" aria-hidden="true"></i>Download</a>
         </div>
       </div>
     </article>
@@ -473,6 +473,87 @@ function initBubbles() {
   }
 }
 
+const aboutBubbleLabels = [
+  "Gym", "Designer", "Decsipline", "HP EliteBook", "McDonalds", "Developer",
+  "Stagiaire", "Poco", "MX570", "Triceps", "Handsome", "Dev104",
+  "DEVOWFS202", "ISMONTIC", "Creatine", "DLTB", "LINE 20", "Flexible",
+  "Passion", "Protien", "Eggs", "Taper Fade", "Belguim",
+];
+
+function initAboutBubbles() {
+  const field = $("#aboutBubbleField");
+  if (!field || prefersReducedMotion || window.innerWidth < 760) return;
+
+  aboutBubbleLabels.forEach((label) => {
+    const bubble = document.createElement("span");
+    bubble.className = "bubble about-bubble";
+    bubble.textContent = label;
+
+    const duration = 18 + Math.random() * 14;
+    const maxLeft = Math.max(4, ((window.innerWidth - 205) / window.innerWidth) * 100);
+    bubble.style.left = `${4 + Math.random() * (maxLeft - 4)}%`;
+    bubble.style.fontSize = `${0.67 + Math.random() * 0.1}rem`;
+    bubble.style.animationDuration = `${duration}s`;
+    bubble.style.animationDelay = `${Math.random() * -duration}s`;
+    bubble.style.setProperty("--drift", `${Math.round(Math.random() * 120 - 60)}px`);
+
+    field.appendChild(bubble);
+  });
+}
+
+/* ---------------------------------------------------------
+   12b-2. PURPLE FIREFLIES
+   --------------------------------------------------------- */
+
+function initFireflies() {
+  const field = $("#fireflyField");
+  if (!field) return;
+
+  const count = window.innerWidth < 760 ? 9 : 18;
+
+  for (let i = 0; i < count; i++) {
+    const firefly = document.createElement("span");
+    firefly.className = "firefly";
+    firefly.style.left = `${Math.random() * 100}%`;
+    firefly.style.top = `${Math.random() * 100}%`;
+    firefly.style.setProperty("--firefly-size", `${2 + Math.random() * 3}px`);
+    const driftX = Math.round(Math.random() * 48 - 24);
+    const driftY = Math.round(Math.random() * 48 - 24);
+    firefly.style.setProperty("--firefly-x", `${driftX}px`);
+    firefly.style.setProperty("--firefly-y", `${driftY}px`);
+    firefly.style.setProperty("--firefly-return-x", `${Math.round(driftX * -0.65)}px`);
+    firefly.style.setProperty("--firefly-return-y", `${Math.round(driftY * -0.55)}px`);
+    firefly.style.setProperty("--firefly-duration", `${9 + Math.random() * 11}s`);
+    firefly.style.setProperty("--firefly-delay", `${Math.random() * -12}s`);
+    field.appendChild(firefly);
+  }
+}
+
+function initPointerAura() {
+  const aura = $("#pointerAura");
+  if (!aura || prefersReducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  let framePending = false;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  window.addEventListener("pointermove", (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    if (framePending) return;
+
+    framePending = true;
+    requestAnimationFrame(() => {
+      aura.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
+      document.body.classList.add("has-pointer-aura");
+      framePending = false;
+    });
+  }, { passive: true });
+
+  window.addEventListener("pointerleave", () => document.body.classList.remove("has-pointer-aura"), { passive: true });
+  window.addEventListener("blur", () => document.body.classList.remove("has-pointer-aura"));
+}
+
 /* ---------------------------------------------------------
    12c. HERO TYPEWRITER
    --------------------------------------------------------- */
@@ -560,16 +641,23 @@ function initTiltCard() {
   const card = $("#tiltCard");
   if (!card || prefersReducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
 
-  const maxTilt = 10;
+  const maxTilt = 7;
 
-  card.addEventListener("mousemove", (e) => {
+  card.addEventListener("pointermove", (e) => {
     const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `rotateY(${x * maxTilt * 2}deg) rotateX(${-y * maxTilt * 2}deg)`;
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const centeredX = x - 0.5;
+    const centeredY = y - 0.5;
+
+    card.style.setProperty("--pointer-x", `${Math.round(x * 100)}%`);
+    card.style.setProperty("--pointer-y", `${Math.round(y * 100)}%`);
+    card.style.transform = `rotateY(${centeredX * maxTilt * 2}deg) rotateX(${-centeredY * maxTilt * 2}deg) translateY(-3px)`;
   });
 
-  card.addEventListener("mouseleave", () => {
+  card.addEventListener("pointerleave", () => {
+    card.style.setProperty("--pointer-x", "58%");
+    card.style.setProperty("--pointer-y", "18%");
     card.style.transform = "rotateY(0deg) rotateX(0deg)";
   });
 }
@@ -590,10 +678,12 @@ function initCardTilt() {
   const settle = (el) => {
     el.style.transition = "transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease)";
     el.style.transform = "";
+    el.style.setProperty("--pointer-x", "50%");
+    el.style.setProperty("--pointer-y", "50%");
   };
 
-  document.addEventListener("mousemove", (e) => {
-    const card = e.target.closest(selector);
+  document.addEventListener("pointermove", (e) => {
+    const card = e.target instanceof Element ? e.target.closest(selector) : null;
 
     if (card !== current) {
       if (current) settle(current);
@@ -603,14 +693,18 @@ function initCardTilt() {
     if (!card) return;
 
     const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const pointX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const pointY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+    const x = pointX - 0.5;
+    const y = pointY - 0.5;
+    card.style.setProperty("--pointer-x", `${(pointX * 100).toFixed(1)}%`);
+    card.style.setProperty("--pointer-y", `${(pointY * 100).toFixed(1)}%`);
     card.style.transform =
       `perspective(900px) rotateY(${(x * maxTilt * 2).toFixed(2)}deg) ` +
       `rotateX(${(-y * maxTilt * 2).toFixed(2)}deg) translateY(-6px) scale(1.015)`;
   }, { passive: true });
 
-  document.addEventListener("mouseleave", () => {
+  document.addEventListener("pointerleave", () => {
     if (current) { settle(current); current = null; }
   });
 }
@@ -695,6 +789,63 @@ function initCopyButtons() {
 }
 
 /* ---------------------------------------------------------
+   12h. GALAXY HOVER FOR PRIMARY CALLS TO ACTION
+   --------------------------------------------------------- */
+
+function initGalaxyButtons() {
+  $$(".btn-galaxy").forEach((button) => {
+    if (button.dataset.galaxyReady) return;
+    button.dataset.galaxyReady = "true";
+
+    const label = document.createElement("span");
+    label.className = "galaxy-button-label";
+    while (button.firstChild) label.appendChild(button.firstChild);
+
+    const backdrop = document.createElement("span");
+    backdrop.className = "galaxy-button-backdrop";
+    backdrop.setAttribute("aria-hidden", "true");
+
+    const spark = document.createElement("span");
+    spark.className = "galaxy-button-spark";
+    spark.setAttribute("aria-hidden", "true");
+
+    const staticStars = document.createElement("span");
+    staticStars.className = "galaxy__container";
+    staticStars.setAttribute("aria-hidden", "true");
+
+    for (let i = 0; i < 4; i++) {
+      const star = document.createElement("span");
+      star.className = "galaxy-star galaxy-star--static";
+      star.style.setProperty("--size", `${2 + Math.random() * 2}`);
+      star.style.setProperty("--duration", `${6 + Math.floor(Math.random() * 15)}`);
+      star.style.setProperty("--delay", `${1 + Math.floor(Math.random() * 10)}`);
+      staticStars.appendChild(star);
+    }
+
+    const galaxy = document.createElement("span");
+    galaxy.className = "galaxy";
+    galaxy.setAttribute("aria-hidden", "true");
+
+    const ring = document.createElement("span");
+    ring.className = "galaxy__ring";
+
+    for (let i = 0; i < 20; i++) {
+      const star = document.createElement("span");
+      star.className = "galaxy-star";
+      star.style.setProperty("--duration", `${6 + Math.floor(Math.random() * 15)}`);
+      star.style.setProperty("--delay", `${1 + Math.floor(Math.random() * 10)}`);
+      star.style.setProperty("--alpha", `${0.4 + Math.random() * 0.5}`);
+      star.style.setProperty("--size", `${2 + Math.floor(Math.random() * 5)}`);
+      star.style.setProperty("--distance", `${40 + Math.floor(Math.random() * 160)}`);
+      ring.appendChild(star);
+    }
+
+    galaxy.appendChild(ring);
+    button.append(backdrop, spark, staticStars, galaxy, label);
+  });
+}
+
+/* ---------------------------------------------------------
    13. MISC
    --------------------------------------------------------- */
 
@@ -730,12 +881,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initThemeToggle();
   initBubbles();
+  initAboutBubbles();
+  initFireflies();
+  initPointerAura();
   initTypewriter();
   initTiltCard();
   initCardTilt();
   initSkillBars();
   initScrollProgress();
   initCopyButtons();
+  initGalaxyButtons();
 
   // Runs last so icons injected by the render functions above
   // (e.g. presentation cards) are converted too.

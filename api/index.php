@@ -42,6 +42,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
   <span class="aurora-blob b2"></span>
   <span class="aurora-blob b3"></span>
   <span class="aurora-blob b4"></span>
+  <div class="firefly-field" id="fireflyField"></div>
+  <div class="pointer-aura" id="pointerAura"></div>
 </div>
 
 <!-- ============ NAVBAR ============ -->
@@ -99,8 +101,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           And somehow, we call that a career.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          <a href="#projects" class="btn btn-primary btn-galaxy"><i data-lucide="arrow-up-right" aria-hidden="true"></i>View My Work</a>
+          <a href="#contact" class="btn btn-ghost"><i data-lucide="mail" aria-hidden="true"></i>Contact Me</a>
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
@@ -151,26 +153,26 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
   </section>
 
   <!-- ============ ABOUT ============ -->
-  <section class="section" id="about">
+  <section class="section about-section" id="about">
+    <div class="bubble-field about-bubble-field" id="aboutBubbleField" aria-hidden="true"></div>
     <div class="section-container">
-      <div class="section-head" data-reveal>
-        <h2 class="section-title">About Me</h2>
-        <p class="section-sub">A bit of context on who I am and where I'm headed.</p>
-      </div>
-
       <div class="about-grid">
-        <div class="about-text" data-reveal><p>
-              I'm <strong>ABDELLAH ZEMRAN</strong>, a Digital Development student at
-              <strong>ISTA NTIC Tanger</strong>, based in Tangier, Morocco. I'm learning
-              web development from front to back — building interfaces, writing logic,
-              working with databases, and figuring out why something suddenly stopped working.
+        <div class="about-text" data-reveal>
+          <div class="section-head">
+            <p class="section-eyebrow"><span>01</span> THE PERSON BEHIND THE CODE</p>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-sub">Curious by nature. Learning by building.</p>
+          </div>
+
+          <p class="about-lead">
+            I'm <strong>Abdellah Zemran</strong>, a Digital Development student at
+            <strong>ISTA NTIC Tanger</strong> in Tangier, Morocco. I build interfaces,
+            write logic, work with databases, and learn how every piece fits together.
           </p>
           <p>
-              I like learning by actually building things, whether it's a school project,
-              a small experiment, or something completely unnecessary but fun to make.
-              I'm still learning, still making mistakes, and still improving with every project.
-              My goal is simple: <strong>keep building, keep learning, and become a developer
-              capable of creating things that actually work.</strong>
+            Most of my progress comes from making real things: coursework, small experiments,
+            and ideas that are too interesting to leave alone. I'm still learning, but every
+            project gives me another reason to keep building.
           </p>
           <div class="about-taglist">
             <span class="about-tag"><i data-lucide="graduation-cap"></i>Digital Development</span>
@@ -181,16 +183,39 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
         </div>
 
         <div class="about-cards" data-reveal>
-          <span class="about-orbit-icon">JS</span>
-          <span class="about-orbit-icon">PHP</span>
-          <span class="about-orbit-icon">SQL</span>
-          <span class="about-orbit-icon">CSS</span>
+          <span class="about-orbit-icon">JS <i data-lucide="sparkles"></i></span>
+          <span class="about-orbit-icon">PHP <i data-lucide="braces"></i></span>
+          <span class="about-orbit-icon">SQL <i data-lucide="database"></i></span>
+          <span class="about-orbit-icon">CSS <i data-lucide="layers-3"></i></span>
 
           <div class="tilt-card" id="tiltCard">
             <div class="tilt-card-inner">
-              <div class="tilt-card-avatar">AZ</div>
-              <h3>Abdellah Zemran</h3>
-              <p class="tilt-role">Digital Development Student</p>
+              <div class="profile-card-topline">
+                <span class="profile-code">PROFILE <b>01</b></span>
+                <span class="profile-status"><i aria-hidden="true"></i> IN BUILD MODE</span>
+              </div>
+
+              <div class="profile-identity">
+                <div class="profile-photo-frame">
+                  <img class="profile-photo" src="/images/me.jpg" alt="Portrait of Abdellah Zemran" loading="lazy">
+                  <span class="profile-photo-stamp">AZ</span>
+                </div>
+                <div class="profile-intro">
+                  <p class="profile-kicker">DIGITAL DEVELOPMENT</p>
+                  <h3>Abdellah<br><span>Zemran</span></h3>
+                  <p class="tilt-role">Student &middot; Developer in progress</p>
+                </div>
+              </div>
+
+              <div class="profile-note">
+                <span aria-hidden="true">&ldquo;</span>
+                <p>Learn by building. Improve with every iteration.</p>
+              </div>
+
+              <div class="profile-stat-heading">
+                <span>THE WORK SO FAR</span>
+                <span>01 <i></i> 03</span>
+              </div>
 
               <div class="tilt-stats">
                 <div class="tilt-stat"><strong data-stat="projects" data-count="0">0</strong><span>Projects</span></div>
@@ -198,17 +223,19 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
                 <div class="tilt-stat"><strong data-stat="presentations" data-count="0">0</strong><span>Talks</span></div>
               </div>
 
-              <div class="tilt-info-row">
-                <i data-lucide="graduation-cap"></i>
-                <span>ISTA NTIC Tanger</span>
-              </div>
-              <div class="tilt-info-row">
-                <i data-lucide="code-2"></i>
-                <span>Web Development &amp; Programming</span>
-              </div>
-              <div class="tilt-info-row">
-                <i data-lucide="map-pin"></i>
-                <span>Morocco, Tangier, Ibn Khaldoun</span>
+              <div class="profile-details">
+                <div class="tilt-info-row">
+                  <i data-lucide="graduation-cap"></i>
+                  <span><small>STUDYING AT</small>ISTA NTIC Tanger</span>
+                </div>
+                <div class="tilt-info-row">
+                  <i data-lucide="code-2"></i>
+                  <span><small>CURRENT FOCUS</small>Web development &amp; programming</span>
+                </div>
+                <div class="tilt-info-row">
+                  <i data-lucide="map-pin"></i>
+                  <span><small>BASED IN</small>Tangier, Morocco</span>
+                </div>
               </div>
             </div>
           </div>
@@ -279,7 +306,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <h2 class="section-title">Skills</h2>
           <p class="section-sub">Technologies I use and am actively developing.</p>
         </div>
-        <a href="public/cv/Abdellah_Zemran_CV.pdf" class="btn btn-cv" download>
+        <a href="public/cv/Abdellah_Zemran_CV.pdf" class="btn btn-cv btn-galaxy" download>
           <i data-lucide="download"></i>
           <span>Download CV</span>
         </a>
@@ -453,7 +480,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message" rows="3" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">
+          <button type="submit" class="btn btn-primary btn-galaxy form-submit">
+            <i data-lucide="send" aria-hidden="true"></i>
             <span class="btn-label">Send Message</span>
           </button>
           <p class="form-note">This form has no backend yet — messages aren't actually sent.</p>
