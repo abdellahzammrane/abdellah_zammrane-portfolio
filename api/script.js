@@ -33,6 +33,7 @@ const exercisesData = [
 {title:"Figma Ficilo application mobile", module:"Figma", category:"figma", description:"My first figma application practice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
 {title:"Atelier 2: Agile Scrum", module:"UML", category:"uml", description:"L'atelier Agile Scrum, il contient des questions que c est possible de poser dans le EFM.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier2_Agile_Scrum.pdf"},
 {title:"Atelier 3: Les bases de Git", module:"Git", category:"git-github", description:"L'atelier Les bases de Git, il contient quelque les commande de Git.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier3_git.pdf"},
+{title:"Atelier 4: Les commandes de Git", module:"Git", category:"git-github", description:"L'atelier Les commandes de Git, il contient quelques commandes avancées.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
 {title:"Atelier 5: Git (exemple EFM)", module:"Git & GitHub", category:"git-github", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
 
 ];
