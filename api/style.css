@@ -2674,6 +2674,30 @@ body {
 :root[data-theme="light"] .exercise-desc,
 :root[data-theme="light"] .presentation-desc { color: var(--text-muted); }
 
+:root[data-theme="light"] .filter-btn {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(78, 67, 145, 0.24);
+  color: #45405f;
+  box-shadow: 0 2px 8px rgba(41, 48, 88, 0.06);
+}
+
+:root[data-theme="light"] .filter-btn:hover {
+  background: #fff;
+  border-color: #7868dc;
+  color: #342878;
+}
+
+:root[data-theme="light"] .filter-btn.active {
+  background: linear-gradient(135deg, #7b68ed, #a58afa);
+  border-color: transparent;
+  color: #17122e;
+}
+
+:root[data-theme="light"] .exercise-module {
+  color: #5942b7;
+  font-weight: 700;
+}
+
 :root[data-theme="light"] .form-row input,
 :root[data-theme="light"] .form-row textarea { background: #f8f9fd; }
 
