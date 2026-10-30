@@ -48,14 +48,14 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 
 <!-- ============ NAVBAR ============ -->
 <header class="navbar" id="navbar">
-  <nav class="nav-container">
-    <a href="#" class="nav-logo">
+  <nav class="nav-container" aria-label="Primary navigation">
+    <a href="#home" class="nav-logo" aria-label="Abdellah Zemran, home">
       <span class="nav-logo-bracket">&lt;</span>AZ<span class="nav-logo-bracket">/&gt;</span>
     </a>
 
     <div class="nav-right">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#home" class="nav-link active" data-section="home" aria-current="location">Home</a></li>
         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
         <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
         <li><a href="#exercises" class="nav-link" data-section="exercises">Exercises</a></li>
@@ -70,7 +70,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         </button>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -101,7 +101,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           And somehow, we call that a career.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary btn-galaxy"><i data-lucide="arrow-up-right" aria-hidden="true"></i>View My Work</a>
+          <a href="#projects" class="btn btn-primary btn-galaxy always-animated-galaxy-btn"><i data-lucide="arrow-up-right" aria-hidden="true"></i>View My Work</a>
           <a href="#contact" class="btn btn-ghost"><i data-lucide="mail" aria-hidden="true"></i>Contact Me</a>
         </div>
         <div class="hero-stats">
@@ -306,7 +306,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <h2 class="section-title">Skills</h2>
           <p class="section-sub">Technologies I use and am actively developing.</p>
         </div>
-        <a href="public/docs/cv_abdellah.pdf" class="btn btn-cv btn-galaxy" download>
+        <a href="/docs/cv_abdellah.pdf" class="btn btn-cv btn-galaxy always-animated-galaxy-btn" download>
           <i data-lucide="download"></i>
           <span>Download CV</span>
         </a>
@@ -480,7 +480,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message" rows="3" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-galaxy form-submit">
+          <button type="submit" class="btn btn-primary btn-galaxy always-animated-galaxy-btn form-submit">
             <i data-lucide="send" aria-hidden="true"></i>
             <span class="btn-label">Send Message</span>
           </button>

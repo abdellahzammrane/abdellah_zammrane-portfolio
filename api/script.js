@@ -39,7 +39,7 @@ const exercisesData = [
 ];
 
 const presentationsData = [
-  { title: "Presentation about The Project Of Facilo", subject: "Mini_Project", description: "A presentation that s owns all types of diagrammes which are used in the project.", fileUrl: "/docs/Projet_FACILO.pptx" },
+  { title: "Presentation about The Project Of Facilo", subject: "Mini_Project", description: "A presentation that s owns all types of diagrammes which are used in the project.", fileUrl: "/docs/Projet_FACILO.pptx", coverAlt: "Cover slide for the Projet Facilo presentation" },
 ];
 
 /* ---------------------------------------------------------
@@ -146,7 +146,11 @@ function renderPresentations() {
 
   grid.innerHTML = presentationsData.map((p, index) => `
     <article class="presentation-card">
-      <div class="presentation-preview" aria-hidden="true"><i data-lucide="presentation"></i></div>
+      <div class="presentation-preview" role="img" aria-label="${escapeHtml(p.coverAlt || `${p.title} cover`)}">
+        <img class="presentation-cover-wave" src="/images/facilo-cover-wave.png" alt="" loading="lazy" decoding="async" />
+        <span class="presentation-cover-project" aria-hidden="true">Projet</span>
+        <img class="presentation-cover-wordmark" src="/images/facilo-cover-wordmark.png" alt="" loading="lazy" decoding="async" />
+      </div>
       <div class="presentation-body">
         <span class="presentation-subject">${escapeHtml(p.subject)}</span>
         <h3 class="presentation-title">${escapeHtml(p.title)}</h3>
@@ -221,23 +225,49 @@ function initNavbar() {
   const navbar = $("#navbar");
   const navToggle = $("#navToggle");
   const navLinks = $("#navLinks");
+  if (!navbar || !navToggle || !navLinks) return;
 
-  window.addEventListener("scroll", () => {
-    navbar.classList.toggle("is-scrolled", window.scrollY > 12);
-  }, { passive: true });
-
-  navToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("is-open");
+  const mobileNav = window.matchMedia("(max-width: 920px)");
+  const setMenuOpen = (isOpen, restoreFocus = false) => {
+    navLinks.classList.toggle("is-open", isOpen);
     navToggle.classList.toggle("is-open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    navLinks.inert = mobileNav.matches && !isOpen;
+    if (restoreFocus) navToggle.focus();
+  };
+
+  const updateScrollState = () => {
+    navbar.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+
+  updateScrollState();
+  window.addEventListener("scroll", updateScrollState, { passive: true });
+  setMenuOpen(false);
+
+  navToggle.addEventListener("click", () => {
+    setMenuOpen(navToggle.getAttribute("aria-expanded") !== "true");
   });
 
   $$(".nav-link", navLinks).forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("is-open");
-      navToggle.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (mobileNav.matches && navToggle.getAttribute("aria-expanded") === "true" &&
+        !navLinks.contains(event.target) && event.target !== navToggle && !navToggle.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+      setMenuOpen(false, true);
+    }
+  });
+
+  mobileNav.addEventListener("change", () => {
+    setMenuOpen(false);
   });
 }
 
@@ -247,9 +277,15 @@ function initActiveSectionTracking() {
 
   const setActive = (id) => {
     navLinks.forEach((link) => {
-      link.classList.toggle("active", link.dataset.section === id);
+      const isActive = link.dataset.section === id;
+      link.classList.toggle("active", isActive);
+      if (isActive) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
     });
   };
+
+  const initialSection = window.location.hash.slice(1);
+  if (navLinks.some((link) => link.dataset.section === initialSection)) setActive(initialSection);
 
   if (!("IntersectionObserver" in window) || sections.length === 0) return;
 
