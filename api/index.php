@@ -31,7 +31,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
+<link rel="icon" type="image/png" href="/images/Favicon.png">
 </head>
 <body>
 
