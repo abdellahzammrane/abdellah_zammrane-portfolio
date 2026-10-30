@@ -249,6 +249,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Academic Projects</h2>
+        <p class="section-sub">Larger builds from coursework and self-directed practice.</p>
       </div>
 
       <div class="project-grid" id="projectGrid" data-reveal>
@@ -262,6 +263,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Exercises &amp; Labs</h2>
+        <p class="section-sub">Smaller, focused work organized by module.</p>
       </div>
 
       <div class="filter-bar" id="exerciseFilters" data-reveal>
@@ -287,6 +289,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Presentations</h2>
+        <p class="section-sub">Slide decks prepared for class presentations.</p>
       </div>
 
       <div class="presentation-grid" id="presentationGrid" data-reveal>
@@ -303,7 +306,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <h2 class="section-title">Skills</h2>
           <p class="section-sub">Technologies I use and am actively developing.</p>
         </div>
-        <a href="public/cv/Abdellah_Zemran_CV.pdf" class="btn btn-cv btn-galaxy" download>
+        <a href="public/docs/cv_abdellah.pdf" class="btn btn-cv btn-galaxy" download>
           <i data-lucide="download"></i>
           <span>Download CV</span>
         </a>
@@ -315,20 +318,20 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <i data-lucide="layout-panel-left"></i>
             <h3 class="skill-cat-title">Front-End</h3>
           </div>
-          <div class="skill-item" style="--level:95%">
-            <div class="skill-item-head"><span>HTML5</span><span>95%</span></div>
+          <div class="skill-item" style="--level:88%">
+            <div class="skill-item-head"><span>HTML5</span><span>88%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
-          <div class="skill-item" style="--level:80%">
-            <div class="skill-item-head"><span>CSS3</span><span>80%</span></div>
+          <div class="skill-item" style="--level:82%">
+            <div class="skill-item-head"><span>CSS3</span><span>82%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+          </div>
+          <div class="skill-item" style="--level:75%">
+            <div class="skill-item-head"><span>JavaScript</span><span>75%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
           <div class="skill-item" style="--level:65%">
-            <div class="skill-item-head"><span>JavaScript</span><span>65%</span></div>
-            <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
-          </div>
-          <div class="skill-item" style="--level:90%">
-            <div class="skill-item-head"><span>Bootstrap</span><span>90%</span></div>
+            <div class="skill-item-head"><span>Bootstrap</span><span>65%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
         </div>
@@ -338,12 +341,12 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <i data-lucide="server"></i>
             <h3 class="skill-cat-title">Back-End</h3>
           </div>
-          <div class="skill-item" style="--level:65%">
-            <div class="skill-item-head"><span>PHP</span><span>65%</span></div>
+          <div class="skill-item" style="--level:70%">
+            <div class="skill-item-head"><span>PHP</span><span>70%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
-          <div class="skill-item" style="--level:35%">
-            <div class="skill-item-head"><span>MySQL</span><span>35%</span></div>
+          <div class="skill-item" style="--level:68%">
+            <div class="skill-item-head"><span>MySQL</span><span>68%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
         </div>
@@ -353,8 +356,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <i data-lucide="terminal"></i>
             <h3 class="skill-cat-title">Programming</h3>
           </div>
-          <div class="skill-item" style="--level:85%">
-            <div class="skill-item-head"><span>Python</span><span>85%</span></div>
+          <div class="skill-item" style="--level:60%">
+            <div class="skill-item-head"><span>Python</span><span>60%</span></div>
             <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
           </div>
         </div>
@@ -370,8 +373,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <span class="skill-badge">Pycharm</span>
             <span class="skill-badge">UML</span>
             <span class="skill-badge">Figma</span>
-            <span class="skill-badge">Claude / IA</span>
-            <span class="skill-badge">CapCut</span>
+            <span class="skill-badge">Claude / IA tools</span>
+            <span class="skill-badge">Office services</span>
             <span class="skill-badge">Canva</span>
             <span class="skill-badge">...</span>
           </div>
