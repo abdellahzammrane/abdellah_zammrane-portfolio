@@ -31,7 +31,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="/images/Favicon.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
 </head>
 <body>
 
@@ -379,6 +379,52 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <span class="skill-badge">...</span>
           </div>
         </div>
+      </div>
+
+      <div class="certificates-block" data-reveal>
+        <div class="certificates-head">
+          <div>
+            <span class="certificates-kicker"><span aria-hidden="true"></span>Learning milestones</span>
+            <h3 class="certificates-title">Certificates</h3>
+            <p class="certificates-intro">A growing record of verified learning and hands-on progress.</p>
+          </div>
+          <span class="certificates-count"><i data-lucide="award" aria-hidden="true"></i>01 earned</span>
+        </div>
+
+        <article class="certificate-card" aria-labelledby="python-essentials-title">
+          <div class="certificate-copy">
+            <div class="certificate-meta">
+              <span class="certificate-verified"><i data-lucide="badge-check" aria-hidden="true"></i>Verified credential</span>
+              <span class="certificate-issuer">Cisco Networking Academy</span>
+            </div>
+            <h4 class="certificate-title" id="python-essentials-title">Python Essentials 1</h4>
+            <p class="certificate-description">Completed a foundation in Python 3, algorithmic problem solving, and the core syntax used to build simple programs.</p>
+
+            <div class="certificate-topics" aria-label="Topics covered">
+              <span>Python 3</span>
+              <span>Problem solving</span>
+              <span>Core syntax</span>
+            </div>
+
+            <div class="certificate-bottom">
+              <span class="certificate-date"><i data-lucide="calendar-days" aria-hidden="true"></i><span><strong>Issued</strong> Oct 31, 2026</span></span>
+              <div class="certificate-actions">
+                <a class="btn btn-small certificate-link" href="https://www.credly.com/badges/5fdb6d97-af3e-4847-806e-2f7a32c65d60/public_url" target="_blank" rel="noopener noreferrer">
+                  <i data-lucide="external-link" aria-hidden="true"></i>Link
+                </a>
+                <a class="btn btn-small certificate-download" href="/docs/PythonEssentials1Update20261031-20-4jojzh.pdf" download="Python-Essentials-1-Certificate.pdf">
+                  <i data-lucide="download" aria-hidden="true"></i>Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="certificate-art">
+            <span class="certificate-art-ring" aria-hidden="true"></span>
+            <img class="certificate-badge-image" src="/images/python-essentials-1-badge.png" alt="Cisco Networking Academy verified badge for Python Essentials 1" loading="lazy" decoding="async">
+            <span class="certificate-art-caption"><i data-lucide="shield-check" aria-hidden="true"></i>Credential verified</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
