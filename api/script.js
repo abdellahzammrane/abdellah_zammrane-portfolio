@@ -36,7 +36,7 @@ const exercisesData = [
 {title:"Atelier 3: Les bases de Git", module:"Git", category:"git-github", description:"L'atelier Les bases de Git, il contient quelque les commande de Git.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier3_git.pdf"},
 {title:"Atelier 4: Les commandes de Git", module:"Git", category:"git-github", description:"L'atelier Les commandes de Git, il contient quelques commandes avancées.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
 {title:"Atelier 5: Git (exemple EFM)", module:"Git & GitHub", category:"git-github", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
-{title:"Atelier 6: GitHub : prérequis du Sprint 3", module:"Git & GitHub", category:"git-github", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
+{title:"Atelier 6: GitHub : prérequis du Sprint 3", module:"Git & GitHub", category:"git-github", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
 
 ];
 
@@ -95,7 +95,9 @@ function renderExercises() {
       <h3 class="exercise-title">${escapeHtml(ex.title)}</h3>
       <p class="exercise-desc">${escapeHtml(ex.description)}</p>
       <div class="card-actions">
-        <button class="btn btn-small js-view-exercise" data-index="${index}"><i data-lucide="code-2" aria-hidden="true"></i>View Code</button>
+        ${ex.liveDemoUrl
+          ? `<a class="btn btn-small" href="${escapeHtml(ex.liveDemoUrl)}" target="_blank" rel="noopener noreferrer"><i data-lucide="arrow-up-right" aria-hidden="true"></i>Live Demo</a>`
+          : `<button class="btn btn-small js-view-exercise" data-index="${index}"><i data-lucide="code-2" aria-hidden="true"></i>View Code</button>`}
         <a class="btn btn-small" href="${ex.downloadUrl}" download><i data-lucide="download" aria-hidden="true"></i>Download</a>
       </div>
     </article>
