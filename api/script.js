@@ -37,7 +37,7 @@ const exercisesData = [
 {title:"Atelier 4: Les commandes de Git", module:"Git", category:"git-github", description:"L'atelier Les commandes de Git, il contient quelques commandes avancées.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
 {title:"Atelier 5: Git (exemple EFM)", module:"Git & GitHub", category:"git-github", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
 {title:"Atelier 6: Prérequis du Sprint 3", module:"Git & GitHub", category:"git-github", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
-{title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"Git & GitHub", category:"git-github", description:"Intégration de SonarQube dans une pipeline CI/CD GitLab .", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
+{title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"Git & GitHub", category:"git-github", description:"Intégration de SonarQube dans une pipeline CI/CD GitLab .", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
 
 ];
 
