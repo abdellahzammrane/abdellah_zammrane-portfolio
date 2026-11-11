@@ -267,15 +267,9 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       </div>
 
       <div class="filter-bar" id="exerciseFilters" data-reveal>
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
-        <button class="filter-btn" data-filter="javascript">JavaScript</button>
-        <button class="filter-btn" data-filter="php">PHP</button>
-        <button class="filter-btn" data-filter="sql">SQL</button>
-        <button class="filter-btn" data-filter="python">Python</button>
-        <button class="filter-btn" data-filter="uml">UML</button>
-        <button class="filter-btn" data-filter="figma">Figma</button>
-        <button class="filter-btn" data-filter="git-github">Git/GitHub</button>
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All modules</button>
+        <button class="filter-btn module-filter" data-filter="m201" aria-pressed="false"><strong>M201</strong><span>Préparer un projet Web</span></button>
+        <button class="filter-btn module-filter" data-filter="m202" aria-pressed="false"><strong>M202</strong><span>Gestion de Projets</span></button>
       </div>
 
       <div class="exercise-grid" id="exerciseGrid" data-reveal>

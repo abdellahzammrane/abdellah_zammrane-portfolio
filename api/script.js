@@ -27,17 +27,17 @@ const projectsData = [
 ];
 
 const exercisesData = [
-{ title: "All types of diagrams, Control", module: "UML", category: "uml", description: "L'atelier UML traite du processus de vente immobilière en utilisant tous les diagrammes principaux..", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "/docs/les-diagrames.pdf" },
-{title:"Figma Partie 1", module:"Figma", category:"figma", description:"L'atelier Figma Partie 1, il contient trois exercices sur les bases de Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-1.pdf"},
-{title:"Figma Partie 2", module:"Figma", category:"figma", description:"L'atelier_Figma_Partie 2_Outils avancés, il contient un seul exercice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-2.png"},
-{title:"Figma Ficilo application mobile", module:"Figma", category:"figma", description:"My first figma application practice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
-{title:"Atelier 1: Gestion de projet", module:"UML", category:"uml", description:"L'atelier Gestion de projet, il contient des exercices sur la gestion de projet.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier1_GestionProjet.pdf"},
-{title:"Atelier 2: Agile Scrum", module:"UML", category:"uml", description:"L'atelier Agile Scrum, il contient des questions que c est possible de poser dans le EFM.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier2_Agile_Scrum.pdf"},
-{title:"Atelier 3: Les bases de Git", module:"Git", category:"git-github", description:"L'atelier Les bases de Git, il contient quelque les commande de Git.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier3_git.pdf"},
-{title:"Atelier 4: Les commandes de Git", module:"Git", category:"git-github", description:"L'atelier Les commandes de Git, il contient quelques commandes avancées.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
-{title:"Atelier 5: Git (exemple EFM)", module:"Git & GitHub", category:"git-github", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
-{title:"Atelier 6: Prérequis du Sprint 3", module:"Git & GitHub", category:"git-github", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
-{title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"Git & GitHub", category:"git-github", description:"Intégration de SonarQube dans une pipeline CI/CD GitLab .", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
+{ title: "All types of diagrams, Control", module: "M201", moduleName: "Préparer un projet Web", category: "m201", description: "L'atelier UML traite du processus de vente immobilière en utilisant tous les diagrammes principaux..", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "/docs/les-diagrames.pdf" },
+{title:"Figma Partie 1", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"L'atelier Figma Partie 1, il contient trois exercices sur les bases de Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-1.pdf"},
+{title:"Figma Partie 2", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"L'atelier_Figma_Partie 2_Outils avancés, il contient un seul exercice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-2.png"},
+{title:"Figma Ficilo application mobile", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"My first figma application practice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
+{title:"Atelier 1: Gestion de projet", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Gestion de projet, il contient des exercices sur la gestion de projet.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier1_GestionProjet.pdf"},
+{title:"Atelier 2: Agile Scrum", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Agile Scrum, il contient des questions que c est possible de poser dans le EFM.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier2_Agile_Scrum.pdf"},
+{title:"Atelier 3: Les bases de Git", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Les bases de Git, il contient quelque les commande de Git.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier3_git.pdf"},
+{title:"Atelier 4: Les commandes de Git", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Les commandes de Git, il contient quelques commandes avancées.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
+{title:"Atelier 5: Git (exemple EFM)", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
+{title:"Atelier 6: Prérequis du Sprint 3", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
+{title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Intégration de SonarQube dans une pipeline CI/CD GitLab .", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
 
 ];
 
@@ -92,7 +92,7 @@ function renderExercises() {
 
   grid.innerHTML = exercisesData.map((ex, index) => `
     <article class="exercise-card" data-category="${ex.category}" data-index="${index}">
-      <span class="exercise-module">${escapeHtml(ex.module)}</span>
+      <span class="exercise-module"><strong>${escapeHtml(ex.module)}</strong><span>${escapeHtml(ex.moduleName)}</span></span>
       <h3 class="exercise-title">${escapeHtml(ex.title)}</h3>
       <p class="exercise-desc">${escapeHtml(ex.description)}</p>
       <div class="card-actions">
@@ -130,8 +130,12 @@ function initExerciseFilters() {
     const btn = e.target.closest(".filter-btn");
     if (!btn) return;
 
-    $$(".filter-btn", filterBar).forEach((b) => b.classList.remove("active"));
+    $$(".filter-btn", filterBar).forEach((b) => {
+      b.classList.remove("active");
+      b.setAttribute("aria-pressed", "false");
+    });
     btn.classList.add("active");
+    btn.setAttribute("aria-pressed", "true");
 
     const filter = btn.dataset.filter;
     $$(".exercise-card").forEach((card) => {

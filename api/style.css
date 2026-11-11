@@ -1656,11 +1656,24 @@ h1, h2, h3, h4 {
 .exercise-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
 
 .exercise-module {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--purple);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.035em;
+}
+.exercise-module strong {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+}
+.exercise-module span {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .exercise-title { font-size: 1.02rem; }
@@ -1671,19 +1684,35 @@ h1, h2, h3, h4 {
 /* ---------- Filter Bar ---------- */
 .filter-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  gap: 12px;
   margin-bottom: 36px;
 }
 
 .filter-btn {
-  padding: 9px 18px;
+  flex: 1 1 0;
+  min-width: 120px;
+  min-height: 54px;
+  padding: 10px 20px;
   border-radius: 999px;
   font-size: 0.86rem;
   border: 1px solid var(--border);
   color: var(--text-muted);
   transition: all var(--dur-fast) var(--ease);
 }
+.module-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.module-filter strong {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--purple);
+  white-space: nowrap;
+}
+.module-filter span { text-align: left; }
 .filter-btn:hover { border-color: var(--border-strong); color: var(--text); }
 .filter-btn.active {
   background: var(--gradient-brand);
@@ -2466,6 +2495,10 @@ h1, h2, h3, h4 {
   .aurora-bg::after { width: 154vw; height: 34vh; min-height: 250px; right: -42%; opacity: 0.36; }
   .firefly { box-shadow: 0 0 6px 2px rgba(173, 104, 255, 0.62), 0 0 14px 3px rgba(126, 58, 235, 0.28); }
 
+  .filter-bar { flex-wrap: wrap; }
+  .filter-btn { flex: 1 1 180px; }
+  .filter-btn:first-child { flex: 0 0 auto; }
+
   .navbar {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -2516,8 +2549,9 @@ h1, h2, h3, h4 {
   .contact-info { gap: 10px; }
   .contact-link { padding: 14px 16px; gap: 12px; }
 
-  .filter-bar { gap: 8px; }
-  .filter-btn { padding: 8px 14px; font-size: 0.8rem; }
+  .filter-bar { flex-wrap: wrap; gap: 8px; }
+  .filter-btn { flex: 1 1 180px; min-height: 50px; padding: 8px 14px; font-size: 0.8rem; }
+  .filter-btn:first-child { flex: 0 0 auto; }
 }
 
 /* ---------- Small phones ---------- */
@@ -2815,6 +2849,8 @@ body {
   color: #160d25;
   box-shadow: 0 8px 24px -14px rgba(192, 157, 255, 0.88), inset 0 1px rgba(255, 255, 255, 0.35);
 }
+
+.module-filter.active strong { color: inherit; }
 
 .presentation-preview {
   position: relative;
