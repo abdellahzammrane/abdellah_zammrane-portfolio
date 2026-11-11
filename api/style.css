@@ -3056,6 +3056,40 @@ body {
   color: #17122e;
 }
 
+:root[data-theme="light"] .module-filter {
+  background: linear-gradient(145deg, #fff, #f0edfa);
+  border-color: #d0cae3;
+  box-shadow: 0 4px 14px rgba(44, 36, 82, 0.08), inset 0 1px #fff;
+}
+
+:root[data-theme="light"] .module-filter strong {
+  color: #51408f;
+  border-color: #d2c7f4;
+  background: linear-gradient(145deg, #eee8ff, #e2dafa);
+}
+
+:root[data-theme="light"] .module-filter span { color: #302a45; }
+
+:root[data-theme="light"] .module-filter:hover {
+  background: linear-gradient(145deg, #fff, #eae5fa);
+  border-color: #9383d0;
+}
+
+:root[data-theme="light"] .module-filter.active {
+  background: linear-gradient(135deg, #6350c9, #806be0);
+  border-color: #6350c9;
+  color: #fff;
+  box-shadow: 0 8px 20px -12px rgba(82, 64, 175, 0.6), inset 0 1px rgba(255, 255, 255, 0.25);
+}
+
+:root[data-theme="light"] .module-filter.active strong {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+:root[data-theme="light"] .module-filter.active span { color: #fff; }
+
 :root[data-theme="light"] .exercise-module {
   color: #5942b7;
   font-weight: 700;
