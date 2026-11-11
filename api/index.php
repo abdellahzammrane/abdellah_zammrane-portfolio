@@ -29,7 +29,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <meta name="description" content="Portfolio of Abdellah Zemran, Digital Development student at ISTA NTIC Tanger — academic projects, exercises, presentations and skills.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
 </head>
@@ -197,7 +198,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 
               <div class="profile-identity">
                 <div class="profile-photo-frame">
-                  <img class="profile-photo" src="/images/me.jpg" alt="Portrait of Abdellah Zemran" loading="lazy">
+                  <img class="profile-photo" src="/images/me-optimized.jpg" alt="Portrait of Abdellah Zemran" loading="lazy" decoding="async">
                   <span class="profile-photo-stamp">AZ</span>
                 </div>
                 <div class="profile-intro">
@@ -568,9 +569,8 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/index.min.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="script.js"></script>
+<script async src="https://unpkg.com/lucide@latest" onload="lucide.createIcons()"></script>
+<script defer src="script.js"></script>
 </body>
 </html>
 

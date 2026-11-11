@@ -13,14 +13,14 @@ const projectsData = [
     title: "PIE - Soutenance de projet KeyTracker KagiTech",
     description: "Projet / Soutenance de projet KeyTracker KagiTech, réalisé dans le cadre du module de Projet d'Intégration et d'Entreprise (PIE).",
     tech: ["HTML", "CSS", "JS"],
-    image: "/images/kagitech.png", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
+    image: "/images/kagitech-optimized.jpg",
     github: "https://github.com/abdellahzammrane/PIE-Project-the-final-version/blob/main/index.html",
     demo: "https://abdellahzammrane.github.io/PIE-Project-the-final-version/",
   }, {
     title: "Facilo — Modern E-Commerce & Service Marketplace",
     description: "A sleek, full-featured web marketplace designed for intuitive browsing and fast item discovery, built with a clean architecture.",
     tech: ["HTML", "CSS", "JS","Git","Github","Vercel"],
-    image: "/images/facilo.jpg", // ضع المسار الدقيق لصورتك بداخل مجلد public/images/
+    image: "/images/facilo-optimized.jpg",
     github: "https://github.com/abdellahzammrane/Facilo-Project-DEVWFS-202",
     demo: "https://abdellahzammrane.github.io/Facilo-Project-DEVWFS-202/home.html",
   },
@@ -65,7 +65,7 @@ function renderProjects() {
   grid.innerHTML = projectsData.map((project) => `
     <article class="project-card">
       <div class="project-thumb">
-        <img src="${project.image}" alt="${escapeHtml(project.title)}" class="project-img" loading="lazy" />
+      <img src="${project.image}" alt="${escapeHtml(project.title)}" class="project-img" loading="lazy" decoding="async" />
       </div>
       <div class="project-body">
         <h3 class="project-title">${escapeHtml(project.title)}</h3>
@@ -926,20 +926,28 @@ document.addEventListener("DOMContentLoaded", () => {
   setFooterYear();
 
   initThemeToggle();
-  initBubbles();
-  initAboutBubbles();
-  initFireflies();
-  initPointerAura();
-  initTypewriter();
-  initTiltCard();
-  initCardTilt();
   initSkillBars();
   initScrollProgress();
   initCopyButtons();
-  initGalaxyButtons();
+
+  const initDecorativeEffects = () => {
+    initBubbles();
+    initAboutBubbles();
+    initFireflies();
+    initPointerAura();
+    initTypewriter();
+    initTiltCard();
+    initCardTilt();
+    initGalaxyButtons();
+  };
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(initDecorativeEffects, { timeout: 1200 });
+  } else {
+    window.setTimeout(initDecorativeEffects, 180);
+  }
 
   // Runs last so icons injected by the render functions above
   // (e.g. presentation cards) are converted too.
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 );

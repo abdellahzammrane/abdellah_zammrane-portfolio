@@ -140,7 +140,7 @@ body {
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: screen;
-  will-change: transform, border-radius;
+  will-change: transform;
 }
 
 /* Two broad, blurred ribbons create a slow, liquid aurora behind the page. */
@@ -312,33 +312,15 @@ body.has-pointer-aura .pointer-aura { opacity: 0.78; }
 }
 
 @keyframes auroraRibbonFlow {
-  0% {
-    transform: translate3d(-2%, -3%, 0) rotate(-14deg) scale(0.98);
-    border-radius: 46% 54% 61% 39% / 57% 42% 58% 43%;
-  }
-  50% {
-    transform: translate3d(2%, 2%, 0) rotate(-9deg) scale(1.04);
-    border-radius: 38% 62% 44% 56% / 46% 60% 40% 54%;
-  }
-  100% {
-    transform: translate3d(-1%, 4%, 0) rotate(-12deg) scale(1.01);
-    border-radius: 59% 41% 52% 48% / 42% 56% 44% 58%;
-  }
+  0% { transform: translate3d(-2%, -3%, 0) rotate(-14deg) scale(0.98); }
+  50% { transform: translate3d(2%, 2%, 0) rotate(-9deg) scale(1.04); }
+  100% { transform: translate3d(-1%, 4%, 0) rotate(-12deg) scale(1.01); }
 }
 
 @keyframes auroraRibbonFlowBack {
-  0% {
-    transform: translate3d(2%, 1%, 0) rotate(15deg) scale(1.02);
-    border-radius: 58% 42% 39% 61% / 45% 58% 42% 55%;
-  }
-  50% {
-    transform: translate3d(-2%, -2%, 0) rotate(21deg) scale(0.98);
-    border-radius: 42% 58% 58% 42% / 58% 43% 57% 42%;
-  }
-  100% {
-    transform: translate3d(1%, -4%, 0) rotate(17deg) scale(1.04);
-    border-radius: 61% 39% 45% 55% / 40% 59% 41% 60%;
-  }
+  0% { transform: translate3d(2%, 1%, 0) rotate(15deg) scale(1.02); }
+  50% { transform: translate3d(-2%, -2%, 0) rotate(21deg) scale(0.98); }
+  100% { transform: translate3d(1%, -4%, 0) rotate(17deg) scale(1.04); }
 }
 
 @media (prefers-reduced-motion: reduce) {
