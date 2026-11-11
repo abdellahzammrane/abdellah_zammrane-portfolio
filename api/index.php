@@ -267,9 +267,10 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       </div>
 
       <div class="filter-bar" id="exerciseFilters" data-reveal>
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">All modules</button>
+        <button class="filter-btn filter-all active" data-filter="all" aria-pressed="true">All modules</button>
         <button class="filter-btn module-filter" data-filter="m201" aria-pressed="false"><strong>M201</strong><span>Préparer un projet Web</span></button>
         <button class="filter-btn module-filter" data-filter="m202" aria-pressed="false"><strong>M202</strong><span>Gestion de Projets</span></button>
+        <button class="filter-btn module-filter" data-filter="m203" aria-pressed="false"><strong>M203</strong><span>Gestion des données</span></button>
       </div>
 
       <div class="exercise-grid" id="exerciseGrid" data-reveal>

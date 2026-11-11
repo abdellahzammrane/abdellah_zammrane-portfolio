@@ -1683,42 +1683,94 @@ h1, h2, h3, h4 {
 
 /* ---------- Filter Bar ---------- */
 .filter-bar {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   margin-bottom: 36px;
 }
 
 .filter-btn {
-  flex: 1 1 0;
-  min-width: 120px;
-  min-height: 54px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 0.86rem;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  transition: all var(--dur-fast) var(--ease);
-}
-.module-filter {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  min-width: 0;
+  min-height: 82px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 0.86rem;
+  font-weight: 650;
+  text-align: left;
+  border: 1px solid rgba(192, 157, 255, 0.2);
+  color: var(--text-muted);
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.filter-all {
+  grid-column: 1 / -1;
+  justify-self: center;
+  min-height: 46px;
+  min-width: 190px;
+  padding: 10px 28px;
+  border-radius: 999px;
   justify-content: center;
-  gap: 12px;
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.module-filter {
+  background: linear-gradient(145deg, rgba(29, 20, 48, 0.96), rgba(18, 14, 30, 0.92));
+  box-shadow: inset 0 1px rgba(255,255,255,0.055), 0 8px 20px rgba(10, 5, 20, 0.14);
 }
 .module-filter strong {
+  display: grid;
+  place-items: center;
+  flex: 0 0 64px;
+  min-height: 48px;
+  padding: 0 9px;
+  border: 1px solid rgba(192, 157, 255, 0.26);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(145, 99, 235, 0.28), rgba(93, 57, 157, 0.18));
   font-family: var(--font-mono);
-  font-size: 0.88rem;
-  color: var(--purple);
+  font-size: 0.9rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: #d7baff;
   white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
-.module-filter span { text-align: left; }
-.filter-btn:hover { border-color: var(--border-strong); color: var(--text); }
+.module-filter span {
+  min-width: 0;
+  text-align: left;
+  font-size: 0.94rem;
+  font-weight: 650;
+  line-height: 1.35;
+  color: #eee8fa;
+}
+.filter-btn:hover { transform: translateY(-2px); border-color: rgba(192, 157, 255, 0.55); color: var(--text); }
 .filter-btn.active {
-  background: var(--gradient-brand);
-  color: #06131a;
-  font-weight: 600;
-  border-color: transparent;
+  background: linear-gradient(135deg, #9c72ff, #d18aff);
+  color: #1a1027;
+  border-color: rgba(232, 211, 255, 0.8);
+  box-shadow: 0 12px 28px -16px rgba(192, 157, 255, 0.95), inset 0 1px rgba(255,255,255,0.5);
+}
+.module-filter.active {
+  background: linear-gradient(140deg, rgba(112, 71, 183, 0.94), rgba(70, 46, 119, 0.96));
+  border-color: rgba(207, 177, 255, 0.85);
+  color: #fff;
+  box-shadow: 0 12px 28px -16px rgba(192, 157, 255, 0.82), inset 0 1px rgba(255,255,255,0.18);
+}
+.module-filter.active strong {
+  color: #fff;
+  border-color: rgba(255,255,255,0.36);
+  background: rgba(255,255,255,0.16);
+}
+.module-filter.active span { color: #fff; }
+.filter-btn:focus-visible {
+  outline: 3px solid rgba(220, 193, 255, 0.8);
+  outline-offset: 3px;
 }
 
 /* ---------- Presentation Card ---------- */
@@ -2495,9 +2547,9 @@ h1, h2, h3, h4 {
   .aurora-bg::after { width: 154vw; height: 34vh; min-height: 250px; right: -42%; opacity: 0.36; }
   .firefly { box-shadow: 0 0 6px 2px rgba(173, 104, 255, 0.62), 0 0 14px 3px rgba(126, 58, 235, 0.28); }
 
-  .filter-bar { flex-wrap: wrap; }
-  .filter-btn { flex: 1 1 180px; }
-  .filter-btn:first-child { flex: 0 0 auto; }
+  .filter-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .module-filter { gap: 10px; padding: 12px; }
+  .module-filter strong { flex-basis: 56px; min-height: 44px; }
 
   .navbar {
     backdrop-filter: none;
@@ -2549,9 +2601,9 @@ h1, h2, h3, h4 {
   .contact-info { gap: 10px; }
   .contact-link { padding: 14px 16px; gap: 12px; }
 
-  .filter-bar { flex-wrap: wrap; gap: 8px; }
-  .filter-btn { flex: 1 1 180px; min-height: 50px; padding: 8px 14px; font-size: 0.8rem; }
-  .filter-btn:first-child { flex: 0 0 auto; }
+  .filter-bar { grid-template-columns: 1fr; gap: 10px; }
+  .filter-btn { min-height: 68px; }
+  .filter-all { min-height: 44px; }
 }
 
 /* ---------- Small phones ---------- */
