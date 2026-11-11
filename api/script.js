@@ -246,12 +246,24 @@ function initNavbar() {
     if (restoreFocus) navToggle.focus();
   };
 
+  let scrollFramePending = false;
+  let lastScrolledState = null;
   const updateScrollState = () => {
-    navbar.classList.toggle("is-scrolled", window.scrollY > 12);
+    const isScrolled = window.scrollY > 12;
+    if (isScrolled !== lastScrolledState) {
+      navbar.classList.toggle("is-scrolled", isScrolled);
+      lastScrolledState = isScrolled;
+    }
+    scrollFramePending = false;
+  };
+  const scheduleScrollState = () => {
+    if (scrollFramePending) return;
+    scrollFramePending = true;
+    requestAnimationFrame(updateScrollState);
   };
 
   updateScrollState();
-  window.addEventListener("scroll", updateScrollState, { passive: true });
+  window.addEventListener("scroll", scheduleScrollState, { passive: true });
   setMenuOpen(false);
 
   navToggle.addEventListener("click", () => {
@@ -345,7 +357,7 @@ function initScrollProgress() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const pct = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
-    fill.style.width = pct + "%";
+    fill.style.transform = `scaleX(${pct / 100})`;
     ticking = false;
   };
 
@@ -366,9 +378,22 @@ function initScrollProgress() {
 
 function initBackToTop() {
   const btn = $("#backToTop");
+  let scrollFramePending = false;
+  let isVisible = false;
+  const updateVisibility = () => {
+    const nextVisible = window.scrollY > 500;
+    if (nextVisible !== isVisible) {
+      btn.classList.toggle("is-visible", nextVisible);
+      isVisible = nextVisible;
+    }
+    scrollFramePending = false;
+  };
   window.addEventListener("scroll", () => {
-    btn.classList.toggle("is-visible", window.scrollY > 500);
+    if (scrollFramePending) return;
+    scrollFramePending = true;
+    requestAnimationFrame(updateVisibility);
   }, { passive: true });
+  updateVisibility();
 
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });

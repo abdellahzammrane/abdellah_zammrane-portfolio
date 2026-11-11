@@ -481,13 +481,14 @@ h1, h2, h3, h4 {
 }
 .scroll-progress-fill {
   height: 100%;
-  width: 0%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
   border-radius: 0 3px 3px 0;
   background: linear-gradient(90deg, var(--cyan), var(--purple), var(--blue), var(--cyan));
   background-size: 300% 100%;
   box-shadow: 0 0 12px rgba(91, 124, 250, 0.7), 0 0 4px rgba(53, 226, 224, 0.6);
   animation: scrollProgressShimmer 4s linear infinite;
-  transition: width 0.1s linear;
 }
 @keyframes scrollProgressShimmer {
   0% { background-position: 0% 0%; }
@@ -2506,15 +2507,11 @@ h1, h2, h3, h4 {
   .aurora-blob { animation: none; will-change: auto; }
   .aurora-blob.b2, .aurora-blob.b4 { display: none; }
   .aurora-blob.b1, .aurora-blob.b3 { filter: blur(50px); opacity: 0.4; }
-  .aurora-bg::before,
-  .aurora-bg::after {
-    animation: none;
-    will-change: auto;
-    filter: blur(52px) saturate(120%);
-  }
-  .aurora-bg::before { width: 176vw; height: 42vh; min-height: 300px; left: -42%; opacity: 0.52; }
-  .aurora-bg::after { width: 154vw; height: 34vh; min-height: 250px; right: -42%; opacity: 0.36; }
-  .firefly { box-shadow: 0 0 6px 2px rgba(173, 104, 255, 0.62), 0 0 14px 3px rgba(126, 58, 235, 0.28); }
+  .aurora-bg::before, .aurora-bg::after { display: none; }
+  .firefly-field { display: none; }
+  [data-reveal] { filter: none; transition: opacity 0.45s var(--ease), transform 0.45s var(--ease); }
+  .scroll-progress-fill { animation: none; box-shadow: none; }
+  .back-to-top { backdrop-filter: none; -webkit-backdrop-filter: none; }
 
   .filter-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .module-filter { gap: 10px; padding: 12px; }
