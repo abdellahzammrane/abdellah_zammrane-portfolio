@@ -1408,20 +1408,7 @@ h1, h2, h3, h4 {
   transform-style: preserve-3d;
   transition: transform 0.18s var(--ease), box-shadow var(--dur-med) var(--ease);
 }
-.tilt-card::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: -12px;
-  border-radius: 38px;
-  background: conic-gradient(from 0deg, #9e70f0, #d88dff, #635bd0, #a66cf0);
-  opacity: 0.34;
-  filter: blur(30px);
-  animation: rotateGlow 16s linear infinite;
-}
 .tilt-card:hover { box-shadow: 0 50px 110px -42px rgba(0, 0, 0, 0.94), 0 0 82px rgba(151, 95, 236, 0.24); }
-
-@keyframes rotateGlow { to { transform: rotate(360deg); } }
 
 .tilt-card-inner {
   position: relative;
@@ -2540,7 +2527,6 @@ h1, h2, h3, h4 {
   }
   .navbar.is-scrolled { background: rgba(var(--bg-rgb), 0.98); }
 
-  .tilt-card::before { animation: none; }
 }
 
 /* ---------- Phones ---------- */
@@ -3296,11 +3282,6 @@ body {
 :root[data-theme="light"] .tilt-card {
   background: linear-gradient(145deg, #c9baff, #9180de 38%, #e4c9ff 72%, #9b91e5);
   box-shadow: 0 34px 74px -42px rgba(57, 48, 112, 0.42), 0 0 58px rgba(121, 98, 213, 0.13);
-}
-
-:root[data-theme="light"] .tilt-card::before {
-  opacity: 0.15;
-  filter: blur(34px);
 }
 
 :root[data-theme="light"] .tilt-card:hover {
