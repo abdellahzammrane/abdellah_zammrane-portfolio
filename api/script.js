@@ -38,6 +38,7 @@ const exercisesData = [
 {title:"Atelier 5: Git (exemple EFM)", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
 {title:"Atelier 6: Prérequis du Sprint 3", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
 {title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Intégration de SonarQube dans une pipeline CI/CD GitLab .", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
+{title:"Atelier 1: SQL Complet – Requêtes, Calculs, Optimisation et Sécurité", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Atelier pratique sur les requêtes SQL, les calculs, l'optimisation et la sécurité", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier1_SQL_gestion_données.pdf"},
 
 ];
 
