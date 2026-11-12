@@ -23,6 +23,7 @@ const projectsData = [
     image: "/images/facilo-optimized.jpg",
     github: "https://github.com/abdellahzammrane/Facilo-Project-DEVWFS-202",
     demo: "https://abdellahzammrane.github.io/Facilo-Project-DEVWFS-202/home.html",
+    reportUrl: "/docs/Rapport_projet_Facilo.pdf",
   },
 ];
 
@@ -77,6 +78,7 @@ function renderProjects() {
         <div class="card-actions">
           <a class="btn btn-small" href="${project.github}" target="_blank" rel="noopener noreferrer"><i data-lucide="code-2" aria-hidden="true"></i>GitHub</a>
           <a class="btn btn-small" href="${project.demo}" target="_blank" rel="noopener noreferrer"><i data-lucide="arrow-up-right" aria-hidden="true"></i>Live Demo</a>
+          ${project.reportUrl ? `<a class="btn btn-small" href="${project.reportUrl}" download><i data-lucide="download" aria-hidden="true"></i>Download Report</a>` : ""}
         </div>
       </div>
     </article>
