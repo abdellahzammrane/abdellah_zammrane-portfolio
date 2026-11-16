@@ -6,8 +6,8 @@
 /* ---------- Design Tokens ---------- */
 :root {
   /* Colors */
-  --bg: #05030a;
-  --bg-rgb: 5, 3, 10;
+  --bg: #030207;
+  --bg-rgb: 3, 2, 7;
   --bg-alt: #090711;
   --surface: #0d0a16;
   --surface-2: #141020;
@@ -22,11 +22,11 @@
   --cyan-soft: rgba(134, 233, 225, 0.11);
   --purple: #c09dff;
   --purple-soft: rgba(192, 157, 255, 0.17);
-  --aurora-purple: rgba(125, 56, 225, 0.25);
-  --aurora-orchid: rgba(190, 67, 241, 0.15);
-  --aurora-ribbon-violet: rgba(119, 67, 222, 0.28);
-  --aurora-ribbon-orchid: rgba(202, 93, 255, 0.19);
-  --aurora-ribbon-indigo: rgba(78, 62, 188, 0.24);
+  --aurora-purple: rgba(125, 56, 225, 0.12);
+  --aurora-orchid: rgba(190, 67, 241, 0.07);
+  --aurora-ribbon-violet: rgba(119, 67, 222, 0.14);
+  --aurora-ribbon-orchid: rgba(202, 93, 255, 0.09);
+  --aurora-ribbon-indigo: rgba(78, 62, 188, 0.12);
   --aurora-blob-violet: #8c5cde;
   --aurora-blob-orchid: #ad5cdd;
   --aurora-blob-indigo: #6557c5;
@@ -206,14 +206,14 @@ body {
   left: -10%;
   background: radial-gradient(circle at 30% 30%, var(--aurora-blob-violet), transparent 70%);
   animation: auroraDrift1 22s ease-in-out infinite;
-  opacity: 0.65;
+  opacity: 0.38;
 }
 .aurora-blob.b2 {
   top: 20%;
   right: -15%;
   background: radial-gradient(circle at 60% 40%, var(--aurora-blob-indigo), transparent 70%);
   animation: auroraDrift2 26s ease-in-out infinite;
-  opacity: 0.3;
+  opacity: 0.17;
 }
 .aurora-blob.b3 {
   bottom: -20%;
@@ -222,7 +222,7 @@ body {
   height: 50vw;
   background: radial-gradient(circle at 50% 50%, var(--aurora-blob-orchid), var(--aurora-blob-indigo) 60%, transparent 75%);
   animation: auroraDrift3 30s ease-in-out infinite;
-  opacity: 0.48;
+  opacity: 0.28;
 }
 .aurora-blob.b4 {
   top: 42%;
@@ -233,7 +233,7 @@ body {
   max-height: 420px;
   background: radial-gradient(circle at 50% 50%, var(--aurora-blob-violet), transparent 72%);
   animation: auroraDrift2 34s ease-in-out infinite reverse;
-  opacity: 0.36;
+  opacity: 0.21;
 }
 
 :root[data-theme="light"] .aurora-blob.b1 { opacity: 0.38; }
