@@ -2128,15 +2128,15 @@ h1, h2, h3, h4 {
   object-fit: cover;
 }
 
-.certificate-document-image {
+.certificate-logo-image {
   position: relative;
   z-index: 1;
-  width: min(90%, 260px);
-  max-height: 184px;
-  padding: 4px;
+  width: auto;
+  height: 180px;
+  max-width: 76%;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 9px;
-  background: #fff;
+  border-radius: 10px;
+  background: #e7e7e7;
   box-shadow: 0 16px 34px -18px rgba(0, 0, 0, 0.54);
   object-fit: contain;
 }

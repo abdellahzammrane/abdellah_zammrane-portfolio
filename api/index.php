@@ -452,8 +452,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 
           <div class="certificate-art">
             <span class="certificate-art-ring" aria-hidden="true"></span>
-            <img class="certificate-document-image" src="/images/certificate_hackathon_digitex.jpg" alt="Digitex Hackathon certificate issued to Abdellah Zemran by Fundación Cideal for participation from November 2 to 4, 2026" loading="lazy" decoding="async">
-            <span class="certificate-art-caption"><i data-lucide="award" aria-hidden="true"></i>Digitex Hackathon 2026</span>
+            <img class="certificate-logo-image" src="/images/cideal_logo.png" alt="Cideal logo" loading="lazy" decoding="async">
           </div>
         </article>
       </div>
