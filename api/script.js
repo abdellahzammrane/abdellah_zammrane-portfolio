@@ -254,24 +254,6 @@ function initNavbar() {
     if (restoreFocus) navToggle.focus();
   };
 
-  let scrollFramePending = false;
-  let lastScrolledState = null;
-  const updateScrollState = () => {
-    const isScrolled = window.scrollY > 12;
-    if (isScrolled !== lastScrolledState) {
-      navbar.classList.toggle("is-scrolled", isScrolled);
-      lastScrolledState = isScrolled;
-    }
-    scrollFramePending = false;
-  };
-  const scheduleScrollState = () => {
-    if (scrollFramePending) return;
-    scrollFramePending = true;
-    requestAnimationFrame(updateScrollState);
-  };
-
-  updateScrollState();
-  window.addEventListener("scroll", scheduleScrollState, { passive: true });
   setMenuOpen(false);
 
   navToggle.addEventListener("click", () => {
@@ -303,8 +285,11 @@ function initNavbar() {
 function initActiveSectionTracking() {
   const sections = $$("main section[id]");
   const navLinks = $$(".nav-link");
+  let activeSection = null;
 
   const setActive = (id) => {
+    if (id === activeSection) return;
+    activeSection = id;
     navLinks.forEach((link) => {
       const isActive = link.dataset.section === id;
       link.classList.toggle("active", isActive);
@@ -352,58 +337,71 @@ function initScrollReveal() {
 }
 
 /* ---------------------------------------------------------
-   9b. SCROLL PROGRESS BAR
+   9. SHARED SCROLL UI
+   One passive listener updates the navbar, progress bar and back-to-top
+   control once per frame. Document height is measured only on resize/content
+   changes, never during a scroll frame.
    --------------------------------------------------------- */
 
-function initScrollProgress() {
-  const fill = $("#scrollProgressFill");
-  if (!fill) return;
+function initScrollEffects() {
+  const navbar = $("#navbar");
+  const progress = $("#scrollProgressFill");
+  const backToTop = $("#backToTop");
+  const root = document.documentElement;
+  let maxScroll = 0;
+  let framePending = false;
+  let previousScrolled = null;
+  let previousVisible = null;
+  let previousProgress = -1;
 
-  let ticking = false;
+  const measureScrollRange = () => {
+    maxScroll = Math.max(0, root.scrollHeight - root.clientHeight);
+  };
 
   const update = () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const pct = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
-    fill.style.transform = `scaleX(${pct / 100})`;
-    ticking = false;
+    framePending = false;
+    const scrollTop = Math.max(0, window.scrollY || root.scrollTop);
+    const isScrolled = scrollTop > 12;
+    const isBackToTopVisible = scrollTop > 500;
+    const progressValue = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+
+    if (navbar && isScrolled !== previousScrolled) {
+      navbar.classList.toggle("is-scrolled", isScrolled);
+      previousScrolled = isScrolled;
+    }
+    if (backToTop && isBackToTopVisible !== previousVisible) {
+      backToTop.classList.toggle("is-visible", isBackToTopVisible);
+      previousVisible = isBackToTopVisible;
+    }
+    if (progress && Math.abs(progressValue - previousProgress) > 0.001) {
+      progress.style.transform = `scaleX(${progressValue})`;
+      previousProgress = progressValue;
+    }
   };
 
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
+  const scheduleUpdate = () => {
+    if (framePending) return;
+    framePending = true;
+    requestAnimationFrame(update);
+  };
 
-  window.addEventListener("resize", update);
+  const refreshScrollRange = () => {
+    measureScrollRange();
+    scheduleUpdate();
+  };
+
+  measureScrollRange();
   update();
-}
+  window.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("resize", refreshScrollRange, { passive: true });
+  window.addEventListener("load", refreshScrollRange, { once: true });
 
-/* ---------------------------------------------------------
-   9. BACK TO TOP
-   --------------------------------------------------------- */
+  if ("ResizeObserver" in window && document.body) {
+    const contentObserver = new ResizeObserver(refreshScrollRange);
+    contentObserver.observe(document.body);
+  }
 
-function initBackToTop() {
-  const btn = $("#backToTop");
-  let scrollFramePending = false;
-  let isVisible = false;
-  const updateVisibility = () => {
-    const nextVisible = window.scrollY > 500;
-    if (nextVisible !== isVisible) {
-      btn.classList.toggle("is-visible", nextVisible);
-      isVisible = nextVisible;
-    }
-    scrollFramePending = false;
-  };
-  window.addEventListener("scroll", () => {
-    if (scrollFramePending) return;
-    scrollFramePending = true;
-    requestAnimationFrame(updateVisibility);
-  }, { passive: true });
-  updateVisibility();
-
-  btn.addEventListener("click", () => {
+  backToTop?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
   });
 }
@@ -526,7 +524,8 @@ function initBubbles() {
   const field = $("#bubbleField");
   if (!field || prefersReducedMotion) return;
 
-  const count = window.innerWidth < 760 ? 0 : 16;
+  const count = window.innerWidth < 760 ? 0 : 6;
+  const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < count; i++) {
     const bubble = document.createElement("span");
@@ -548,8 +547,10 @@ function initBubbles() {
     bubble.style.animationDelay = `${delay}s`;
     bubble.style.setProperty("--drift", drift);
 
-    field.appendChild(bubble);
+    fragment.appendChild(bubble);
   }
+
+  field.appendChild(fragment);
 }
 
 const aboutBubbleLabels = [
@@ -563,7 +564,8 @@ function initAboutBubbles() {
   const field = $("#aboutBubbleField");
   if (!field || prefersReducedMotion || window.innerWidth < 760) return;
 
-  aboutBubbleLabels.forEach((label) => {
+  const fragment = document.createDocumentFragment();
+  aboutBubbleLabels.slice(0, 8).forEach((label) => {
     const bubble = document.createElement("span");
     bubble.className = "bubble about-bubble";
     bubble.textContent = label;
@@ -576,8 +578,9 @@ function initAboutBubbles() {
     bubble.style.animationDelay = `${Math.random() * -duration}s`;
     bubble.style.setProperty("--drift", `${Math.round(Math.random() * 120 - 60)}px`);
 
-    field.appendChild(bubble);
+    fragment.appendChild(bubble);
   });
+  field.appendChild(fragment);
 }
 
 /* ---------------------------------------------------------
@@ -588,7 +591,9 @@ function initFireflies() {
   const field = $("#fireflyField");
   if (!field) return;
 
-  const count = window.innerWidth < 760 ? 9 : 18;
+  if (window.innerWidth < 760) return;
+  const count = 6;
+  const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < count; i++) {
     const firefly = document.createElement("span");
@@ -596,16 +601,9 @@ function initFireflies() {
     firefly.style.left = `${Math.random() * 100}%`;
     firefly.style.top = `${Math.random() * 100}%`;
     firefly.style.setProperty("--firefly-size", `${2 + Math.random() * 3}px`);
-    const driftX = Math.round(Math.random() * 48 - 24);
-    const driftY = Math.round(Math.random() * 48 - 24);
-    firefly.style.setProperty("--firefly-x", `${driftX}px`);
-    firefly.style.setProperty("--firefly-y", `${driftY}px`);
-    firefly.style.setProperty("--firefly-return-x", `${Math.round(driftX * -0.65)}px`);
-    firefly.style.setProperty("--firefly-return-y", `${Math.round(driftY * -0.55)}px`);
-    firefly.style.setProperty("--firefly-duration", `${9 + Math.random() * 11}s`);
-    firefly.style.setProperty("--firefly-delay", `${Math.random() * -12}s`);
-    field.appendChild(firefly);
+    fragment.appendChild(firefly);
   }
+  field.appendChild(fragment);
 }
 
 function initPointerAura() {
@@ -613,6 +611,7 @@ function initPointerAura() {
   if (!aura || prefersReducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   let framePending = false;
+  let auraVisible = false;
   let pointerX = 0;
   let pointerY = 0;
 
@@ -624,61 +623,42 @@ function initPointerAura() {
     framePending = true;
     requestAnimationFrame(() => {
       aura.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
-      document.body.classList.add("has-pointer-aura");
+      if (!auraVisible) {
+        document.body.classList.add("has-pointer-aura");
+        auraVisible = true;
+      }
       framePending = false;
     });
   }, { passive: true });
 
-  window.addEventListener("pointerleave", () => document.body.classList.remove("has-pointer-aura"), { passive: true });
-  window.addEventListener("blur", () => document.body.classList.remove("has-pointer-aura"));
+  const hideAura = () => {
+    if (!auraVisible) return;
+    document.body.classList.remove("has-pointer-aura");
+    auraVisible = false;
+  };
+  window.addEventListener("pointerleave", hideAura, { passive: true });
+  window.addEventListener("blur", hideAura);
 }
 
 /* ---------------------------------------------------------
    12c. HERO TYPEWRITER
    --------------------------------------------------------- */
 
-const typewriterPhrases = [
-  "Digital Development Student",
-  "Future Web Developer",
-  "Curious Problem Solver",
-  "Professional Bug Creator (and Fixer)",
-];
-
 function initTypewriter() {
   const el = $("#typewriter");
   if (!el) return;
 
+  const phrase = "Digital Development Student";
   if (prefersReducedMotion) {
-    el.textContent = typewriterPhrases[0];
+    el.textContent = phrase;
     return;
   }
 
-  let phraseIndex = 0;
   let charIndex = 0;
-  let isDeleting = false;
-
   function tick() {
-    const current = typewriterPhrases[phraseIndex];
-
-    if (!isDeleting) {
-      charIndex++;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(tick, 1600);
-        return;
-      }
-    } else {
-      charIndex--;
-      el.textContent = current.slice(0, charIndex);
-      if (charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
-      }
-    }
-
-    const speed = isDeleting ? 35 : 65;
-    setTimeout(tick, speed);
+    charIndex += 1;
+    el.textContent = phrase.slice(0, charIndex);
+    if (charIndex < phrase.length) setTimeout(tick, 55);
   }
 
   tick();
@@ -709,82 +689,6 @@ function initThemeToggle() {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
     }
-  });
-}
-
-/* ---------------------------------------------------------
-   12e. ABOUT TILT CARD
-   --------------------------------------------------------- */
-
-function initTiltCard() {
-  const card = $("#tiltCard");
-  if (!card || prefersReducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
-
-  const maxTilt = 7;
-
-  card.addEventListener("pointermove", (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    const centeredX = x - 0.5;
-    const centeredY = y - 0.5;
-
-    card.style.setProperty("--pointer-x", `${Math.round(x * 100)}%`);
-    card.style.setProperty("--pointer-y", `${Math.round(y * 100)}%`);
-    card.style.transform = `rotateY(${centeredX * maxTilt * 2}deg) rotateX(${-centeredY * maxTilt * 2}deg) translateY(-3px)`;
-  });
-
-  card.addEventListener("pointerleave", () => {
-    card.style.setProperty("--pointer-x", "58%");
-    card.style.setProperty("--pointer-y", "18%");
-    card.style.transform = "rotateY(0deg) rotateX(0deg)";
-  });
-}
-
-/* ---------------------------------------------------------
-   12e-2. 3D TILT ON PROJECT / EXERCISE / PRESENTATION / SKILL CARDS
-   Uses delegation so it keeps working after renderProjects() etc.
-   redraw the grids — no need to re-bind after every render.
-   --------------------------------------------------------- */
-
-function initCardTilt() {
-  if (prefersReducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
-
-  const selector = ".project-card, .exercise-card, .presentation-card, .skill-category";
-  const maxTilt = 7;
-  let current = null;
-
-  const settle = (el) => {
-    el.style.transition = "transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease)";
-    el.style.transform = "";
-    el.style.setProperty("--pointer-x", "50%");
-    el.style.setProperty("--pointer-y", "50%");
-  };
-
-  document.addEventListener("pointermove", (e) => {
-    const card = e.target instanceof Element ? e.target.closest(selector) : null;
-
-    if (card !== current) {
-      if (current) settle(current);
-      current = card;
-      if (card) card.style.transition = "transform 0.08s linear";
-    }
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const pointX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-    const pointY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
-    const x = pointX - 0.5;
-    const y = pointY - 0.5;
-    card.style.setProperty("--pointer-x", `${(pointX * 100).toFixed(1)}%`);
-    card.style.setProperty("--pointer-y", `${(pointY * 100).toFixed(1)}%`);
-    card.style.transform =
-      `perspective(900px) rotateY(${(x * maxTilt * 2).toFixed(2)}deg) ` +
-      `rotateX(${(-y * maxTilt * 2).toFixed(2)}deg) translateY(-6px) scale(1.015)`;
-  }, { passive: true });
-
-  document.addEventListener("pointerleave", () => {
-    if (current) { settle(current); current = null; }
   });
 }
 
@@ -892,7 +796,7 @@ function initGalaxyButtons() {
     staticStars.className = "galaxy__container";
     staticStars.setAttribute("aria-hidden", "true");
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 2; i++) {
       const star = document.createElement("span");
       star.className = "galaxy-star galaxy-star--static";
       star.style.setProperty("--size", `${2 + Math.random() * 2}`);
@@ -908,7 +812,7 @@ function initGalaxyButtons() {
     const ring = document.createElement("span");
     ring.className = "galaxy__ring";
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
       const star = document.createElement("span");
       star.className = "galaxy-star";
       star.style.setProperty("--duration", `${6 + Math.floor(Math.random() * 15)}`);
@@ -953,14 +857,13 @@ document.addEventListener("DOMContentLoaded", () => {
   initExerciseFilters();
   initModal();
   initScrollReveal();
-  initBackToTop();
+  initScrollEffects();
   initHeroCounters();
   initContactForm();
   setFooterYear();
 
   initThemeToggle();
   initSkillBars();
-  initScrollProgress();
   initCopyButtons();
 
   const initDecorativeEffects = () => {
@@ -969,8 +872,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initFireflies();
     initPointerAura();
     initTypewriter();
-    initTiltCard();
-    initCardTilt();
     initGalaxyButtons();
   };
   if ("requestIdleCallback" in window) {
