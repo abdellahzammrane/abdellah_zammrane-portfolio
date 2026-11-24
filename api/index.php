@@ -384,7 +384,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <h3 class="certificates-title">Certificates</h3>
             <p class="certificates-intro">A growing record of verified learning and hands-on progress.</p>
           </div>
-          <span class="certificates-count"><i data-lucide="award" aria-hidden="true"></i>01 earned</span>
+          <span class="certificates-count"><i data-lucide="award" aria-hidden="true"></i>02 earned</span>
         </div>
 
         <article class="certificate-card" aria-labelledby="python-essentials-title">
@@ -419,6 +419,41 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <span class="certificate-art-ring" aria-hidden="true"></span>
             <img class="certificate-badge-image" src="/images/python-essentials-1-badge.png" alt="Cisco Networking Academy verified badge for Python Essentials 1" loading="lazy" decoding="async">
             <span class="certificate-art-caption"><i data-lucide="shield-check" aria-hidden="true"></i>Credential verified</span>
+          </div>
+        </article>
+
+        <article class="certificate-card" aria-labelledby="digitex-hackathon-title">
+          <div class="certificate-copy">
+            <div class="certificate-meta">
+              <span class="certificate-verified"><i data-lucide="trophy" aria-hidden="true"></i>3rd Place · Team Award</span>
+              <span class="certificate-issuer">Fundación Cideal</span>
+            </div>
+            <h4 class="certificate-title" id="digitex-hackathon-title">Digitex Hackathon</h4>
+            <p class="certificate-description">Earned 3rd place with my team at the Digitex Hackathon, focused on digital innovation and entrepreneurship.</p>
+
+            <div class="certificate-topics" aria-label="Achievement details">
+              <span>3rd Place</span>
+              <span>Team Achievement</span>
+              <span>Digital Innovation</span>
+            </div>
+
+            <div class="certificate-bottom">
+              <span class="certificate-date"><i data-lucide="calendar-days" aria-hidden="true"></i><span><strong>Issued</strong> Nov 2–4, 2026</span></span>
+              <div class="certificate-actions">
+                <a class="btn btn-small certificate-link" href="/images/certificate_hackathon_digitex.jpg" target="_blank" rel="noopener noreferrer">
+                  <i data-lucide="external-link" aria-hidden="true"></i>View Certificate
+                </a>
+                <a class="btn btn-small certificate-download" href="/images/certificate_hackathon_digitex.jpg" download="Digitex-Hackathon-Certificate.jpg">
+                  <i data-lucide="download" aria-hidden="true"></i>Download
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="certificate-art">
+            <span class="certificate-art-ring" aria-hidden="true"></span>
+            <img class="certificate-document-image" src="/images/certificate_hackathon_digitex.jpg" alt="Digitex Hackathon certificate issued to Abdellah Zemran by Fundación Cideal for participation from November 2 to 4, 2026" loading="lazy" decoding="async">
+            <span class="certificate-art-caption"><i data-lucide="award" aria-hidden="true"></i>Digitex Hackathon 2026</span>
           </div>
         </article>
       </div>
