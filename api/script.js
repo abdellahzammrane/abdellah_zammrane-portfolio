@@ -11,14 +11,14 @@
 const projectsData = [
   {
     title: "PIE - Soutenance de projet KeyTracker KagiTech",
-    description: "Projet / Soutenance de projet KeyTracker KagiTech, réalisé dans le cadre du module de Projet d'Intégration et d'Entreprise (PIE).",
+    description: "KeyTracker presentation for the Project Integration and Enterprise module (PIE).",
     tech: ["HTML", "CSS", "JS"],
     image: "/images/kagitech-optimized.jpg",
     github: "https://github.com/abdellahzammrane/PIE-Project-the-final-version/blob/main/index.html",
     demo: "https://abdellahzammrane.github.io/PIE-Project-the-final-version/",
   }, {
     title: "Facilo — Modern E-Commerce & Service Marketplace",
-    description: "A sleek, full-featured web marketplace designed for intuitive browsing and fast item discovery, built with a clean architecture.",
+    description: "A web marketplace for browsing products and services.",
     tech: ["HTML", "CSS", "JS","Git","Github","Vercel"],
     image: "/images/facilo-optimized.jpg",
     github: "https://github.com/abdellahzammrane/Facilo-Project-DEVWFS-202",
@@ -28,28 +28,28 @@ const projectsData = [
 ];
 
 const exercisesData = [
-{ title: "All types of diagrams, Control", module: "M201", moduleName: "Préparer un projet Web", category: "m201", description: "L'atelier UML traite du processus de vente immobilière en utilisant tous les diagrammes principaux..", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "/docs/les-diagrames.pdf" },
-{title:"Figma Partie 1", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"L'atelier Figma Partie 1, il contient trois exercices sur les bases de Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-1.pdf"},
-{title:"Figma Partie 2", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"L'atelier_Figma_Partie 2_Outils avancés, il contient un seul exercice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-2.png"},
-{title:"Figma Ficilo application mobile", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"My first figma application practice.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
-{title:"Atelier 1: Gestion de projet", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Gestion de projet, il contient des exercices sur la gestion de projet.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier1_GestionProjet.pdf"},
-{title:"Atelier 2: Agile Scrum", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Agile Scrum, il contient des questions que c est possible de poser dans le EFM.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier2_Agile_Scrum.pdf"},
-{title:"Atelier 3: Les bases de Git", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Les bases de Git, il contient quelque les commande de Git.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier3_git.pdf"},
-{title:"Atelier 4: Les commandes de Git", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier Les commandes de Git, il contient quelques commandes avancées.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
-{title:"Atelier 5: Git (exemple EFM)", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier pour les exemples de Git, un examan fin de module Régional.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
-{title:"Atelier 6: Prérequis du Sprint 3", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"L'atelier prérequis du Sprint 3, utilisation de Aiven et Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
-{title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Intégration de SonarQube dans une pipeline CI/CD GitLab .", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
-{title:"Atelier 1: SQL Complet – Requêtes, Calculs, Optimisation et Sécurité", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Atelier pratique sur les requêtes SQL, les calculs, l'optimisation et la sécurité", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier1_SQL_gestion_données.pdf"},
-{title:"Atelier 2: Procédures et fonctions stockées (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Exercices sur les procédures et les fonctions stockées avec MySQL.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_2_Procedures_et_Fonctions_Stockees_MySQL.pdf"},
-{title:"Atelier 3: Gestion d'un centre de formation (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Exercices MySQL autour de la gestion d'un centre de formation.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_3_Gestion_Centre_de_Formation_MySQL.pdf"},
-{title:"Atelier 4: Les curseurs (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Exercices sur l'utilisation des curseurs dans MySQL.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_4_Les_Curseurs_MySQL.pdf"},
-{title:"Atelier 5: MySQL", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Atelier pratique de gestion des données avec MySQL.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_5_MySQL.pdf"},
-{title:"Atelier 6: Les triggers (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Exercices sur la création et l'utilisation des triggers MySQL.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_6_Les_Triggers_MySQL.pdf"},
+{ title: "All types of diagrams, Control", module: "M201", moduleName: "Préparer un projet Web", category: "m201", description: "UML diagrams for a real estate sales process.", codeUrl: "https://github.com/your-username/exercises/uml/ecommerce-class-diagram", downloadUrl: "/docs/les-diagrames.pdf" },
+{title:"Figma Partie 1", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"Three exercises covering Figma basics.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-1.pdf"},
+{title:"Figma Partie 2", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"An exercise on advanced Figma tools.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-partie-2.png"},
+{title:"Figma Ficilo application mobile", module:"M201", moduleName:"Préparer un projet Web", category:"m201", description:"Mobile app design practice in Figma.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/figma-facilo-app-mobile.pdf"},
+{title:"Atelier 1: Gestion de projet", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Project management fundamentals.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier1_GestionProjet.pdf"},
+{title:"Atelier 2: Agile Scrum", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Agile Scrum review questions.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier2_Agile_Scrum.pdf"},
+{title:"Atelier 3: Les bases de Git", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Git basics and essential commands.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier3_git.pdf"},
+{title:"Atelier 4: Les commandes de Git", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Advanced Git commands.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier4_Git.pdf"},
+{title:"Atelier 5: Git (exemple EFM)", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Git practice for the regional end-of-module exam.", codeUrl:"https://github.com/your-username/exercises/figma/expense-tracker", downloadUrl:"/docs/Atelier5_EFM_Régional.pdf"},
+{title:"Atelier 6: Prérequis du Sprint 3", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"Sprint 3 setup with Aiven and Cloudinary.", liveDemoUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier6_GitHub_aiven_cloudinary.pdf"},
+{title:"Atelier 7: SonarQube dans une pipeline CI/CD GitLab", module:"M202", moduleName:"Gestion de Projets", category:"m202", description:"SonarQube integration in a GitLab CI/CD pipeline.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier7_GitLab_SonarQube_Cloud.pdf"},
+{title:"Atelier 1: SQL Complet – Requêtes, Calculs, Optimisation et Sécurité", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"SQL queries, calculations, optimization, and security.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier1_SQL_gestion_données.pdf"},
+{title:"Atelier 2: Procédures et fonctions stockées (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"MySQL stored procedures and functions.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_2_Procedures_et_Fonctions_Stockees_MySQL.pdf"},
+{title:"Atelier 3: Gestion d'un centre de formation (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"MySQL exercises for a training center database.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_3_Gestion_Centre_de_Formation_MySQL.pdf"},
+{title:"Atelier 4: Les curseurs (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Using cursors in MySQL.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_4_Les_Curseurs_MySQL.pdf"},
+{title:"Atelier 5: MySQL", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"MySQL data management practice.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_5_MySQL.pdf"},
+{title:"Atelier 6: Les triggers (MySQL)", module:"M203", moduleName:"Gestion des Données", category:"m203", description:"Creating and using MySQL triggers.", codeUrl:"https://atelier6stagiaires.vercel.app/", downloadUrl:"/docs/Atelier_6_Les_Triggers_MySQL.pdf"},
 
 ];
 
 const presentationsData = [
-  { title: "Presentation about The Project Of Facilo", subject: "Mini_Project", description: "A presentation that s owns all types of diagrammes which are used in the project.", fileUrl: "/docs/Projet_FACILO.pptx", coverAlt: "Cover slide for the Projet Facilo presentation" },
+  { title: "Presentation about The Project Of Facilo", subject: "Mini_Project", description: "An overview of the diagrams used in Facilo.", fileUrl: "/docs/Projet_FACILO.pptx", coverAlt: "Cover slide for the Projet Facilo presentation" },
 ];
 
 /* ---------------------------------------------------------
@@ -99,7 +99,7 @@ function renderExercises() {
   if (!grid) return;
 
   grid.innerHTML = exercisesData.map((ex, index) => `
-    <article class="exercise-card" data-category="${ex.category}" data-index="${index}">
+    <article class="exercise-card is-hidden" data-category="${ex.category}" data-index="${index}">
       <span class="exercise-module"><strong>${escapeHtml(ex.module)}</strong><span>${escapeHtml(ex.moduleName)}</span></span>
       <h3 class="exercise-title">${escapeHtml(ex.title)}</h3>
       <p class="exercise-desc">${escapeHtml(ex.description)}</p>
@@ -132,13 +132,15 @@ function renderExercises() {
 
 function initExerciseFilters() {
   const filterBar = $("#exerciseFilters");
-  if (!filterBar) return;
+  const grid = $("#exerciseGrid");
+  const note = $("#exerciseSelectionNote");
+  if (!filterBar || !grid) return;
 
   filterBar.addEventListener("click", (e) => {
-    const btn = e.target.closest(".filter-btn");
+    const btn = e.target.closest(".module-filter");
     if (!btn) return;
 
-    $$(".filter-btn", filterBar).forEach((b) => {
+    $$(".module-filter", filterBar).forEach((b) => {
       b.classList.remove("active");
       b.setAttribute("aria-pressed", "false");
     });
@@ -146,10 +148,15 @@ function initExerciseFilters() {
     btn.setAttribute("aria-pressed", "true");
 
     const filter = btn.dataset.filter;
-    $$(".exercise-card").forEach((card) => {
-      const matches = filter === "all" || card.dataset.category === filter;
+    const cards = $$(".exercise-card", grid);
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const matches = card.dataset.category === filter;
       card.classList.toggle("is-hidden", !matches);
+      if (matches) visibleCount += 1;
     });
+    grid.hidden = false;
+    if (note) note.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? "exercise" : "exercises"} for ${btn.querySelector("strong").textContent} · ${btn.querySelector("span").textContent}.`;
   });
 }
 

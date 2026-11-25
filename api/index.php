@@ -26,7 +26,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AbdellaH's Portfolio</title>
-<meta name="description" content="Portfolio of Abdellah Zemran, Digital Development student at ISTA NTIC Tanger — academic projects, exercises, presentations and skills.">
+<meta name="description" content="Abdellah Zemran's portfolio: web projects, coursework, skills, and achievements.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Cabin:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -92,15 +92,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
         <p class="hero-kicker">Digital Development — ISTA NTIC Tanger</p>
         <h1 class="hero-title">AbdellaH <span class="family_name">ZammRane</span></h1>
         <p class="hero-role"><span id="typewriter"></span><span class="typewriter-cursor">&nbsp;</span></p>
-        <p class="hero-desc">
-          Where I spend 20% of my time writing code and 80% wondering why the code doesn't work.
-          I tell computers what to do for a living.
-          They don't always listen.
-          So I debug.
-          They break again.
-          I debug again.
-          And somehow, we call that a career.
-        </p>
+        <p class="hero-desc">I build web apps, solve problems, and learn from every bug.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary btn-galaxy always-animated-galaxy-btn"><i data-lucide="arrow-up-right" aria-hidden="true"></i>View My Work</a>
           <a href="#contact" class="btn btn-ghost"><i data-lucide="mail" aria-hidden="true"></i>Contact Me</a>
@@ -168,13 +160,9 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <p class="about-lead">
             I'm <strong>Abdellah Zemran</strong>, a Digital Development student at
             <strong>ISTA NTIC Tanger</strong> in Tangier, Morocco. I build interfaces,
-            write logic, work with databases, and learn how every piece fits together.
+            write code, and work with databases.
           </p>
-          <p>
-            Most of my progress comes from making real things: coursework, small experiments,
-            and ideas that are too interesting to leave alone. I'm still learning, but every
-            project gives me another reason to keep building.
-          </p>
+          <p>I learn by building coursework, experiments, and personal projects.</p>
           <div class="about-taglist">
             <span class="about-tag"><i data-lucide="graduation-cap"></i>Digital Development</span>
             <span class="about-tag"><i data-lucide="puzzle"></i>Problem Solver</span>
@@ -250,7 +238,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Academic Projects</h2>
-        <p class="section-sub">Larger builds from coursework and self-directed practice.</p>
+        <p class="section-sub">Coursework and personal projects.</p>
       </div>
 
       <div class="project-grid" id="projectGrid" data-reveal>
@@ -264,17 +252,17 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Exercises &amp; Labs</h2>
-        <p class="section-sub">Smaller, focused work organized by module.</p>
+        <p class="section-sub">Coursework grouped by module.</p>
       </div>
 
       <div class="filter-bar" id="exerciseFilters" data-reveal>
-        <button class="filter-btn filter-all active" data-filter="all" aria-pressed="true">All modules</button>
         <button class="filter-btn module-filter" data-filter="m201" aria-pressed="false"><strong>M201</strong><span>Préparer un projet Web</span></button>
         <button class="filter-btn module-filter" data-filter="m202" aria-pressed="false"><strong>M202</strong><span>Gestion de Projets</span></button>
         <button class="filter-btn module-filter" data-filter="m203" aria-pressed="false"><strong>M203</strong><span>Gestion des données</span></button>
       </div>
 
-      <div class="exercise-grid" id="exerciseGrid" data-reveal>
+      <p class="exercise-selection-note" id="exerciseSelectionNote" role="status" aria-live="polite">Select a module to view its exercises.</p>
+      <div class="exercise-grid" id="exerciseGrid" data-reveal hidden>
         <!-- injected by script.js from exercisesData -->
       </div>
     </div>
@@ -285,7 +273,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Presentations</h2>
-        <p class="section-sub">Slide decks prepared for class presentations.</p>
+        <p class="section-sub">Class presentation slides.</p>
       </div>
 
       <div class="presentation-grid" id="presentationGrid" data-reveal>
@@ -300,7 +288,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       <div class="section-head skills-head-row" data-reveal>
         <div>
           <h2 class="section-title">Skills</h2>
-          <p class="section-sub">Technologies I use and am actively developing.</p>
+          <p class="section-sub">Tools and technologies I'm learning.</p>
         </div>
         <a href="/docs/cv_abdellah.pdf" class="btn btn-cv btn-galaxy always-animated-galaxy-btn" download>
           <i data-lucide="download"></i>
@@ -382,7 +370,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
           <div>
             <span class="certificates-kicker"><span aria-hidden="true"></span>Learning milestones</span>
             <h3 class="certificates-title">Certificates</h3>
-            <p class="certificates-intro">A growing record of verified learning and hands-on progress.</p>
+            <p class="certificates-intro">Courses and achievements.</p>
           </div>
           <span class="certificates-count"><i data-lucide="award" aria-hidden="true"></i>02 earned</span>
         </div>
@@ -394,7 +382,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="certificate-issuer">Cisco Networking Academy</span>
             </div>
             <h4 class="certificate-title" id="python-essentials-title">Python Essentials 1</h4>
-            <p class="certificate-description">Completed a foundation in Python 3, algorithmic problem solving, and the core syntax used to build simple programs.</p>
+            <p class="certificate-description">Python 3 fundamentals, problem solving, and core syntax.</p>
 
             <div class="certificate-topics" aria-label="Topics covered">
               <span>Python 3</span>
@@ -429,7 +417,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="certificate-issuer">Fundación Cideal</span>
             </div>
             <h4 class="certificate-title" id="digitex-hackathon-title">Digitex Hackathon</h4>
-            <p class="certificate-description">Earned 3rd place with my team at the Digitex Hackathon, focused on digital innovation and entrepreneurship.</p>
+            <p class="certificate-description">Placed third with my team for digital innovation and entrepreneurship.</p>
 
             <div class="certificate-topics" aria-label="Achievement details">
               <span>3rd Place</span>
@@ -452,6 +440,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 
           <div class="certificate-art">
             <span class="certificate-art-ring" aria-hidden="true"></span>
+            <span class="certificate-logo-disc" aria-hidden="true"></span>
             <img class="certificate-logo-image" src="/images/cideal_logo.png" alt="Cideal logo" loading="lazy" decoding="async">
           </div>
         </article>
@@ -464,7 +453,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
     <div class="section-container">
       <div class="section-head" data-reveal>
         <h2 class="section-title">Get In Touch</h2>
-        <p class="section-sub">Questions about my work, or an opportunity to collaborate? Reach out.</p>
+        <p class="section-sub">Have a question or want to collaborate? Get in touch.</p>
       </div>
 
       <div class="contact-grid">
@@ -560,7 +549,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             <i data-lucide="send" aria-hidden="true"></i>
             <span class="btn-label">Send Message</span>
           </button>
-          <p class="form-note">This form has no backend yet — messages aren't actually sent.</p>
+          <p class="form-note">Message sending is not available yet.</p>
         </form>
       </div>
     </div>
@@ -573,14 +562,14 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
   <div class="footer-container">
     <div class="footer-brand">
       <p class="footer-name">AbdellaH ZammRane</p>
-      <p class="footer-sub">Digital Development Stagiaire · Tangier, Morocco</p>
+      <p class="footer-sub">Digital Development Student · Tangier, Morocco</p>
     </div>
     <div class="footer-socials">
       <a href="https://github.com/abdellahzammrane" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
       <a href="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
       <a href="mailto:zamrannabbdlah@gmail.com" aria-label="Email">Email</a>
     </div>
-    <p class="footer-copy">&copy; <span id="year"></span> AbdellaH ZammRane. Built Line By Line, Word By Word.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> AbdellaH ZammRane. Built with care.</p>
   </div>
 </footer>
 
