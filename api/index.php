@@ -496,7 +496,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="copy-icon-done"><i data-lucide="check"></i></span>
             </button>
           </a>
-          <a class="contact-link" href="https://www.instagram.com/abdellah_zamrane/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <a class="contact-link" href="https://www.instagram.com/abdellah_zemran/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <span class="contact-icon" aria-hidden="true">
               <svg role="img" viewBox="0 0 24 24" aria-label="Instagram" width="30" height="30" xmlns="http://www.w3.org/2000/svg" style="fill: var(--cyan);">
                 <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
@@ -504,9 +504,9 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             </span>
             <span>
               <span class="contact-label">Instagram</span>
-              <span class="contact-value">abdellah_zamrane</span>
+              <span class="contact-value">abdellah_zemran</span>
             </span>
-            <button type="button" class="copy-btn" data-copy="abdellah_zamrane" aria-label="Copy Instagram handle to clipboard">
+            <button type="button" class="copy-btn" data-copy="abdellah_zemran" aria-label="Copy Instagram handle to clipboard">
               <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
               <span class="copy-icon-done"><i data-lucide="check"></i></span>
             </button>
@@ -526,7 +526,7 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
               <span class="copy-icon-done"><i data-lucide="check"></i></span>
             </button>
           </a>
-          <a class="contact-link" href="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" target="_blank" rel="noopener noreferrer">
+          <a class="contact-link" href="https://www.linkedin.com/in/abdellah-zemran-23b0373a4/" target="_blank" rel="noopener noreferrer">
             <span class="contact-icon" aria-hidden="true">
               <svg role="img" viewBox="0 0 24 24" aria-label="LinkedIn" width="30" height="30" xmlns="http://www.w3.org/2000/svg" style="color: var(--cyan);">
                 <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -535,9 +535,9 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
             </span>
             <span>
               <span class="contact-label">LinkedIn</span>
-              <span class="contact-value">AbdellaH ZammRane</span>
+              <span class="contact-value">Abdellah Zemran</span>
             </span>
-            <button type="button" class="copy-btn" data-copy="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" aria-label="Copy LinkedIn link to clipboard">
+            <button type="button" class="copy-btn" data-copy="https://www.linkedin.com/in/abdellah-zemran-23b0373a4/" aria-label="Copy LinkedIn link to clipboard">
               <span class="copy-icon-idle"><i data-lucide="copy"></i></span>
               <span class="copy-icon-done"><i data-lucide="check"></i></span>
             </button>
@@ -573,15 +573,15 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
-      <p class="footer-name">AbdellaH ZammRane</p>
+      <p class="footer-name">Abdellah Zemran</p>
       <p class="footer-sub">Digital Development Student · Tangier, Morocco</p>
     </div>
     <div class="footer-socials">
       <a href="https://github.com/abdellahzammrane" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-      <a href="https://www.linkedin.com/in/abdellah-zammrane-23b0373a4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/abdellah-zemran-23b0373a4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
       <a href="mailto:zamrannabbdlah@gmail.com" aria-label="Email">Email</a>
     </div>
-    <p class="footer-copy">&copy; <span id="year"></span> AbdellaH ZammRane. Built with care.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> Abdellah Zemran. Built with care.</p>
   </div>
 </footer>
 
