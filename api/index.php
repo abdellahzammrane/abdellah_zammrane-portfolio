@@ -256,9 +256,21 @@ if (file_exists($filePath) && !is_dir($filePath) && $request !== '/') {
       </div>
 
       <div class="filter-bar" id="exerciseFilters" data-reveal>
-        <button class="filter-btn module-filter" data-filter="m201" aria-pressed="false"><strong>M201</strong><span>Préparer un projet Web</span></button>
-        <button class="filter-btn module-filter" data-filter="m202" aria-pressed="false"><strong>M202</strong><span>Gestion de Projets</span></button>
-        <button class="filter-btn module-filter" data-filter="m203" aria-pressed="false"><strong>M203</strong><span>Gestion des données</span></button>
+        <button class="filter-btn module-filter" data-filter="m201" aria-pressed="false">
+          <span class="module-card-top"><strong>M201</strong><span class="module-card-count">04 exercises</span></span>
+          <span class="module-card-title">Préparer un projet Web</span>
+          <span class="module-card-cta">Explore module <span aria-hidden="true">↗</span></span>
+        </button>
+        <button class="filter-btn module-filter" data-filter="m202" aria-pressed="false">
+          <span class="module-card-top"><strong>M202</strong><span class="module-card-count">07 exercises</span></span>
+          <span class="module-card-title">Gestion de Projets</span>
+          <span class="module-card-cta">Explore module <span aria-hidden="true">↗</span></span>
+        </button>
+        <button class="filter-btn module-filter" data-filter="m203" aria-pressed="false">
+          <span class="module-card-top"><strong>M203</strong><span class="module-card-count">06 exercises</span></span>
+          <span class="module-card-title">Gestion des données</span>
+          <span class="module-card-cta">Explore module <span aria-hidden="true">↗</span></span>
+        </button>
       </div>
 
       <p class="exercise-selection-note" id="exerciseSelectionNote" role="status" aria-live="polite">Select a module to view its exercises.</p>

@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    ABDELLAH ZEMRAN — PORTFOLIO SCRIPT
    All content data lives at the top of this file so it can
    be edited without touching any rendering/UI logic below.
@@ -156,7 +156,7 @@ function initExerciseFilters() {
       if (matches) visibleCount += 1;
     });
     grid.hidden = false;
-    if (note) note.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? "exercise" : "exercises"} for ${btn.querySelector("strong").textContent} · ${btn.querySelector("span").textContent}.`;
+    if (note) note.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? "exercise" : "exercises"} for ${btn.querySelector("strong").textContent} · ${btn.querySelector(".module-card-title").textContent}.`;
   });
 }
 
